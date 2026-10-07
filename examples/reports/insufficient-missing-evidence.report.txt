@@ -15,7 +15,7 @@ Transaction syn-wd-001 (withdrawal): INSUFFICIENT EVIDENCE
     [info] note external_payout_not_verified: Confirmation on chain is not a bank payout: AnchorTrace checks only the Stellar leg. The external payout (bank, cash or other rail) is not observable here and remains the anchor's claim.
 
 Inputs:
-  src-1 sep24_record supplied file insufficient-missing-evidence.case.json
+  src-1 sep24_record supplied file insufficient-missing-evidence.case.json [synthetic example: the SEP-24 record is not from a real anchor]
   src-2 evidence supplied file insufficient-missing-evidence.case.json (embedded evidence)
 
 Limitations:

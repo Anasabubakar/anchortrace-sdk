@@ -17,7 +17,7 @@ Transaction syn-dep-001 (deposit): MATCHED
     [info] note external_funds_not_verified: AnchorTrace checks only the Stellar leg. The user's external deposit (bank, crypto or other rail) is not observable here and remains the anchor's claim.
 
 Inputs:
-  src-1 sep24_record supplied file matched-deposit.case.json
+  src-1 sep24_record supplied file matched-deposit.case.json [synthetic example: the SEP-24 record is not from a real anchor]
   src-2 evidence supplied file matched-deposit.case.json (embedded evidence)
 
 Limitations:

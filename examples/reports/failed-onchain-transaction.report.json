@@ -10,7 +10,7 @@
       "id": "src-1",
       "role": "sep24_record",
       "kind": "supplied_file",
-      "label": "failed-onchain-transaction.case.json",
+      "label": "failed-onchain-transaction.case.json [synthetic example: the SEP-24 record is not from a real anchor]",
       "sha256": null,
       "url": null,
       "network": null,
