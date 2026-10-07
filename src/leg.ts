@@ -22,7 +22,7 @@ export interface Leg {
 
 export interface AcquisitionFailure {
   hash: string;
-  kind: "not_found" | "unavailable" | "timeout" | "invalid_response" | "too_large";
+  kind: "not_found" | "unavailable" | "timeout" | "invalid_response" | "too_large" | "invalid_hash";
   detail: string;
   sourceId: string;
 }
