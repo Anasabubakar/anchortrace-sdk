@@ -1,0 +1,21 @@
+{
+  "transaction": {
+    "id": "syn-dep-001",
+    "kind": "deposit",
+    "status": "completed",
+    "started_at": "2026-10-07T14:00:00Z",
+    "updated_at": "2026-10-07T14:10:00Z",
+    "completed_at": "2026-10-07T14:10:00Z",
+    "amount_in": "52.0000000",
+    "amount_out": "50.0000000",
+    "amount_out_asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+    "fee_details": {
+      "total": "2.0000000",
+      "asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD"
+    },
+    "to": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+    "deposit_memo": "dep-2001",
+    "deposit_memo_type": "text",
+    "stellar_transaction_id": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49"
+  }
+}

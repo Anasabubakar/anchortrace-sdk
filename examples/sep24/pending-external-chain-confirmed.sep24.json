@@ -1,0 +1,21 @@
+{
+  "transaction": {
+    "id": "syn-wd-001",
+    "kind": "withdrawal",
+    "status": "pending_external",
+    "started_at": "2026-10-07T13:55:00Z",
+    "updated_at": "2026-10-07T14:05:00Z",
+    "amount_in": "100.0000000",
+    "amount_in_asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+    "amount_out": "98.0000000",
+    "fee_details": {
+      "total": "2.0000000",
+      "asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD"
+    },
+    "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+    "withdraw_memo": "1001",
+    "withdraw_memo_type": "id",
+    "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+    "stellar_transaction_id": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "transaction": {
+    "id": "syn-wd-001",
+    "kind": "withdrawal",
+    "status": "completed",
+    "started_at": "2026-10-07T13:55:00Z",
+    "updated_at": "2026-10-07T14:30:00Z",
+    "completed_at": "2026-10-07T14:30:00Z",
+    "amount_in": "5.0000000",
+    "amount_in_asset": "stellar:native",
+    "amount_out": "4.0000000",
+    "fee_details": {
+      "total": "1.0000000",
+      "asset": "stellar:native"
+    },
+    "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+    "withdraw_memo": null,
+    "withdraw_memo_type": null,
+    "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+    "stellar_transaction_id": "22c0dd38e9dbfa432f9c5451a173a87d838fbb4fb702073a62d5c182feb139d0"
+  }
+}

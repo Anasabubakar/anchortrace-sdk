@@ -1,0 +1,33 @@
+{
+  "transaction": {
+    "id": "syn-wd-001",
+    "kind": "withdrawal",
+    "status": "refunded",
+    "started_at": "2026-10-07T13:55:00Z",
+    "updated_at": "2026-10-07T14:30:00Z",
+    "completed_at": "2026-10-07T14:30:00Z",
+    "amount_in": "50.0000000",
+    "amount_in_asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+    "amount_out": "0.0000000",
+    "fee_details": {
+      "total": "0.0000000",
+      "asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD"
+    },
+    "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+    "withdraw_memo": "1001",
+    "withdraw_memo_type": "id",
+    "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+    "refunds": {
+      "amount_refunded": "50.0000000",
+      "amount_fee": "0.0000000",
+      "payments": [
+        {
+          "id": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+          "id_type": "stellar",
+          "amount": "50.0000000",
+          "fee": "0.0000000"
+        }
+      ]
+    }
+  }
+}
