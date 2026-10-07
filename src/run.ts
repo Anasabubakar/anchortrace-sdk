@@ -95,3 +95,24 @@ function dedupe(txs: EvidenceTransaction[]): EvidenceTransaction[] {
   }
   return out;
 }
+
+/** Transaction hashes a live read would need: each record's stellar_transaction_id and every on-chain refund payment id. */
+export function collectTransactionHashes(records: SuppliedFile[]): string[] {
+  const first = records[0];
+  const recs =
+    first !== undefined && looksLikeCase(first.value)
+      ? parseSep24Records(parseCase(first.value).records)
+      : records.flatMap((f) => parseSep24Records(f.value));
+  const out = new Set<string>();
+  for (const r of recs) {
+    if (typeof r.stellar_transaction_id === "string" && r.stellar_transaction_id !== "") out.add(r.stellar_transaction_id);
+    for (const p of r.refunds?.payments ?? []) if (p.id_type === "stellar") out.add(p.id);
+  }
+  return [...out].sort();
+}
+
+/** How many provenance ids reconcileSupplied will assign to the supplied inputs, so live reads can number theirs after them. */
+export function suppliedSourceCount(records: SuppliedFile[], evidence: SuppliedFile[]): number {
+  const first = records[0];
+  return (first !== undefined && looksLikeCase(first.value) ? 2 : records.length) + evidence.length;
+}
