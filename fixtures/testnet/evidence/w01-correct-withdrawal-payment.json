@@ -1,0 +1,119 @@
+{
+  "evidenceVersion": "1",
+  "capture": {
+    "network": "testnet",
+    "horizon": "https://horizon-testnet.stellar.org",
+    "capturedAt": "2026-10-07T14:00:43.205Z",
+    "note": "Raw Horizon responses recorded by scripts/testnet-fixtures.mjs"
+  },
+  "items": [
+    {
+      "transaction": {
+        "memo": "1001",
+        "_links": {
+          "self": {
+            "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd"
+          },
+          "account": {
+            "href": "https://horizon-testnet.stellar.org/accounts/GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH"
+          },
+          "ledger": {
+            "href": "https://horizon-testnet.stellar.org/ledgers/5071611"
+          },
+          "operations": {
+            "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd/operations{?cursor,limit,order}",
+            "templated": true
+          },
+          "effects": {
+            "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd/effects{?cursor,limit,order}",
+            "templated": true
+          },
+          "precedes": {
+            "href": "https://horizon-testnet.stellar.org/transactions?order=asc&cursor=21782403383037952"
+          },
+          "succeeds": {
+            "href": "https://horizon-testnet.stellar.org/transactions?order=desc&cursor=21782403383037952"
+          },
+          "transaction": {
+            "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd"
+          }
+        },
+        "id": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+        "paging_token": "21782403383037952",
+        "successful": true,
+        "hash": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+        "ledger": 5071611,
+        "created_at": "2026-10-07T14:00:42Z",
+        "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+        "source_account_sequence": "21782270239047684",
+        "fee_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+        "fee_charged": "100",
+        "max_fee": "100",
+        "operation_count": 1,
+        "envelope_xdr": "AAAAAgAAAACsSCEHPlugy7j9X3ZNjTlX/HTEskpuQU80aIc//khrSwAAAGQATWLcAAAABAAAAAEAAAAAAAAAAAAAAABqxlD+AAAAAgAAAAAAAAPpAAAAAQAAAAEAAAAArEghBz5boMu4/V92TY05V/x0xLJKbkFPNGiHP/5Ia0sAAAABAAAAAEXMequSwMfKMjviXlofpWmBG3HFMsHm/qUJ4Bw1aKqEAAAAAlRSQUNFVVNEAAAAAAAAAAC/DVn4xREk6KvXqVAQcsJNpwUFQbMrabiAmOop7OLRtAAAAAA7msoAAAAAAAAAAAH+SGtLAAAAQPc8d9iEjWoJ9uA55XBqgFkyikuj3O3q++ZMYGjiFE6ikI6NjBD2xxIZpC6zoQmx3tdjj+iWibfCriglceSHtg0=",
+        "result_xdr": "AAAAAAAAAGQAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAA=",
+        "fee_meta_xdr": "AAAAAgAAAAMATWL2AAAAAAAAAACsSCEHPlugy7j9X3ZNjTlX/HTEskpuQU80aIc//khrSwAAABdIduYMAE1i3AAAAAMAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABNYvYAAAAAasZQcQAAAAAAAAABAE1i+wAAAAAAAAAArEghBz5boMu4/V92TY05V/x0xLJKbkFPNGiHP/5Ia0sAAAAXSHblqABNYtwAAAADAAAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAATWL2AAAAAGrGUHEAAAAA",
+        "memo_type": "id",
+        "signatures": [
+          "9zx32ISNagn24DnlcGqAWTKKS6Pc7er75kxgaOIUTqKQjo2MEPbHEhmkLrOhCbHe12OP6JaJt8KuKCVx5Ie2DQ=="
+        ],
+        "preconditions": {
+          "timebounds": {
+            "min_time": "0",
+            "max_time": "1791381758"
+          }
+        }
+      },
+      "operations": {
+        "_links": {
+          "self": {
+            "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd/operations?cursor=&limit=200&order=asc"
+          },
+          "next": {
+            "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd/operations?cursor=21782403383037953&limit=200&order=asc"
+          },
+          "prev": {
+            "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd/operations?cursor=21782403383037953&limit=200&order=desc"
+          }
+        },
+        "_embedded": {
+          "records": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://horizon-testnet.stellar.org/operations/21782403383037953"
+                },
+                "transaction": {
+                  "href": "https://horizon-testnet.stellar.org/transactions/70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd"
+                },
+                "effects": {
+                  "href": "https://horizon-testnet.stellar.org/operations/21782403383037953/effects"
+                },
+                "succeeds": {
+                  "href": "https://horizon-testnet.stellar.org/effects?order=desc&cursor=21782403383037953"
+                },
+                "precedes": {
+                  "href": "https://horizon-testnet.stellar.org/effects?order=asc&cursor=21782403383037953"
+                }
+              },
+              "id": "21782403383037953",
+              "paging_token": "21782403383037953",
+              "transaction_successful": true,
+              "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+              "type": "payment",
+              "type_i": 1,
+              "created_at": "2026-10-07T14:00:42Z",
+              "transaction_hash": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+              "asset_type": "credit_alphanum12",
+              "asset_code": "TRACEUSD",
+              "asset_issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+              "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+              "to": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+              "amount": "100.0000000"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

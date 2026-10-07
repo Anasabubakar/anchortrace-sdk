@@ -1,0 +1,120 @@
+{
+  "evidenceVersion": "1",
+  "capture": {
+    "network": "testnet",
+    "horizon": "https://horizon-testnet.stellar.org",
+    "capturedAt": "2026-10-07T14:03:07.970Z",
+    "note": "Raw Horizon responses recorded by scripts/testnet-fixtures.mjs"
+  },
+  "items": [
+    {
+      "transaction": {
+        "memo": "dep-2001",
+        "memo_bytes": "ZGVwLTIwMDE=",
+        "_links": {
+          "self": {
+            "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49"
+          },
+          "account": {
+            "href": "https://horizon-testnet.stellar.org/accounts/GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI"
+          },
+          "ledger": {
+            "href": "https://horizon-testnet.stellar.org/ledgers/5071640"
+          },
+          "operations": {
+            "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49/operations{?cursor,limit,order}",
+            "templated": true
+          },
+          "effects": {
+            "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49/effects{?cursor,limit,order}",
+            "templated": true
+          },
+          "precedes": {
+            "href": "https://horizon-testnet.stellar.org/transactions?order=asc&cursor=21782527937101824"
+          },
+          "succeeds": {
+            "href": "https://horizon-testnet.stellar.org/transactions?order=desc&cursor=21782527937101824"
+          },
+          "transaction": {
+            "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49"
+          }
+        },
+        "id": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+        "paging_token": "21782527937101824",
+        "successful": true,
+        "hash": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+        "ledger": 5071640,
+        "created_at": "2026-10-07T14:03:07Z",
+        "source_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+        "source_account_sequence": "21782274534014980",
+        "fee_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+        "fee_charged": "100",
+        "max_fee": "100",
+        "operation_count": 1,
+        "envelope_xdr": "AAAAAgAAAABFzHqrksDHyjI74l5aH6VpgRtxxTLB5v6lCeAcNWiqhAAAAGQATWLdAAAABAAAAAEAAAAAAAAAAAAAAABqxlGPAAAAAQAAAAhkZXAtMjAwMQAAAAEAAAABAAAAAEXMequSwMfKMjviXlofpWmBG3HFMsHm/qUJ4Bw1aKqEAAAAAQAAAACsSCEHPlugy7j9X3ZNjTlX/HTEskpuQU80aIc//khrSwAAAAJUUkFDRVVTRAAAAAAAAAAAvw1Z+MURJOir16lQEHLCTacFBUGzK2m4gJjqKezi0bQAAAAAHc1lAAAAAAAAAAABNWiqhAAAAEDlj7Q2aT6cy1j8fhLs8789g9FYeT0Lm3ADhuKQBPr0EtWAIAgjLP/V3C4ZnjStUj9waoWD1Umnx88IsbMQxU8P",
+        "result_xdr": "AAAAAAAAAGQAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAA=",
+        "fee_meta_xdr": "AAAAAgAAAAMATWMUAAAAAAAAAABFzHqrksDHyjI74l5aH6VpgRtxxTLB5v6lCeAcNWiqhAAAABdLcdYoAE1i3QAAAAMAAAACAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAADAAAAAABNYw8AAAAAasZQ7gAAAAAAAAABAE1jGAAAAAAAAAAARcx6q5LAx8oyO+JeWh+laYEbccUyweb+pQngHDVoqoQAAAAXS3HVxABNYt0AAAADAAAAAgAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAwAAAAAATWMPAAAAAGrGUO4AAAAA",
+        "memo_type": "text",
+        "signatures": [
+          "5Y+0Nmk+nMtY/H4S7PO/PYPRWHk9C5twA4bikAT69BLVgCAIIyz/1dwuGZ40rVI/cGqFg9VJp8fPCLGzEMVPDw=="
+        ],
+        "preconditions": {
+          "timebounds": {
+            "min_time": "0",
+            "max_time": "1791381903"
+          }
+        }
+      },
+      "operations": {
+        "_links": {
+          "self": {
+            "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49/operations?cursor=&limit=200&order=asc"
+          },
+          "next": {
+            "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49/operations?cursor=21782527937101825&limit=200&order=asc"
+          },
+          "prev": {
+            "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49/operations?cursor=21782527937101825&limit=200&order=desc"
+          }
+        },
+        "_embedded": {
+          "records": [
+            {
+              "_links": {
+                "self": {
+                  "href": "https://horizon-testnet.stellar.org/operations/21782527937101825"
+                },
+                "transaction": {
+                  "href": "https://horizon-testnet.stellar.org/transactions/6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49"
+                },
+                "effects": {
+                  "href": "https://horizon-testnet.stellar.org/operations/21782527937101825/effects"
+                },
+                "succeeds": {
+                  "href": "https://horizon-testnet.stellar.org/effects?order=desc&cursor=21782527937101825"
+                },
+                "precedes": {
+                  "href": "https://horizon-testnet.stellar.org/effects?order=asc&cursor=21782527937101825"
+                }
+              },
+              "id": "21782527937101825",
+              "paging_token": "21782527937101825",
+              "transaction_successful": true,
+              "source_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+              "type": "payment",
+              "type_i": 1,
+              "created_at": "2026-10-07T14:03:07Z",
+              "transaction_hash": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+              "asset_type": "credit_alphanum12",
+              "asset_code": "TRACEUSD",
+              "asset_issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+              "from": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+              "to": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+              "amount": "50.0000000"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
