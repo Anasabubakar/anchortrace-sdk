@@ -1,0 +1,96 @@
+{
+  "network": "testnet",
+  "horizon": "https://horizon-testnet.stellar.org",
+  "asset": {
+    "code": "TRACEUSD",
+    "issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+    "rogueIssuer": "GAZ3S5TXIUUSAW7UC2RPQXNYWUJZSTSH5CPHG5RYNMOUBMJL45ER6ZII"
+  },
+  "accounts": {
+    "issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+    "rogue": "GAZ3S5TXIUUSAW7UC2RPQXNYWUJZSTSH5CPHG5RYNMOUBMJL45ER6ZII",
+    "wallet": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+    "anchor": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+    "other": "GAJF3UA262M4GDTH4SC6BKOVML5WEH2IRS4LRV7Y2FXJPX7XOBSWWWAZ"
+  },
+  "scenarios": {
+    "w01-correct-withdrawal-payment": {
+      "hash": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "100.0000000 TRACEUSD (issuer) to anchor, memo id 1001"
+    },
+    "w02-wrong-destination": {
+      "hash": "49dc35522bb385b721addb66809cb1d8458fdfcd1f6c8a57761cad70a860b045",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "100 TRACEUSD to the 'other' account instead of the anchor, memo id 1002"
+    },
+    "w03-wrong-issuer": {
+      "hash": "c44916ee3f5abefa73adf90115a962ddf9b64c5f062f33a65f7361b1bee810d9",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "100 TRACEUSD issued by the rogue issuer to anchor, memo id 1003"
+    },
+    "w04-wrong-amount": {
+      "hash": "b854aeb2a7af625bc8e8f67ee2241a17f5d109eefec5d3272b755bd0634dd5e1",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "99.5 TRACEUSD (issuer) to anchor, memo id 1004"
+    },
+    "w05-multi-operation": {
+      "hash": "76eee990ef2b8ace20331c1a46d30b3cdf564f5bc30983f9707c3c002dcb550d",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "one tx, two payments (60 + 40) to anchor, memo id 1005"
+    },
+    "w06-path-payment": {
+      "hash": "bea39147fb218d958d1fea34b40e4f6a38ef855672af648d7f6b3e17d64029a7",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "path payment strict send XLM->XLM 5 to anchor, memo id 1006"
+    },
+    "w07-claimable-balance": {
+      "hash": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "create_claimable_balance 5 XLM claimable by anchor, memo id 1007"
+    },
+    "w08-wrong-memo": {
+      "hash": "9aad18f2a6d5ecef6a644de19955e5313e206317756de93a9d87d26bce94a516",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "100 TRACEUSD to anchor with memo id 9999 (record will say 1008)"
+    },
+    "w09-failed-transaction": {
+      "hash": "d4a99c4c618641c288820feef43c00e86acde8fce49bdcd1a0b0be4642e3aaa6",
+      "horizonAccepted": false,
+      "resultCodes": {
+        "transaction": "tx_failed",
+        "operations": [
+          "op_underfunded"
+        ]
+      },
+      "note": "payment larger than balance: transaction fails on apply (op_underfunded)"
+    },
+    "d01-correct-deposit-payment": {
+      "hash": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "anchor pays 50 TRACEUSD to wallet, memo text dep-2001"
+    },
+    "w10-soroban-sac-transfer": {
+      "hash": "22c0dd38e9dbfa432f9c5451a173a87d838fbb4fb702073a62d5c182feb139d0",
+      "horizonAccepted": true,
+      "resultCodes": null,
+      "note": "invoke_host_function: transfer 5 XLM on the native Stellar Asset Contract CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC from wallet to anchor"
+    }
+  },
+  "setupTransactions": [
+    "013693dfad23e9f4cbb1b3bbe9b438446614db750cf6108d01522a679368efb9",
+    "182ee0a962e35033387a45df380823657a219a07510053c75a30f7aba66a7a79",
+    "835c485aa2ca54478bd9d96c49325040836a6a08d88d7e9daac8d1666260cc80",
+    "4a2ddc9b2a3b5761b8ca4d203025de6411e0a7a803215b8d12ff34655488d12a",
+    "499afa31f57371bd3fd25df0d02e5519221871be0fca21021bf85396c561d198"
+  ]
+}
