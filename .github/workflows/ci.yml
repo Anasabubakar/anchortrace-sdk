@@ -1,0 +1,34 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    name: node (typecheck, schema, examples, test, build, pack smoke)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run typecheck
+      - run: pnpm run check:schema
+      - run: pnpm run check:examples
+      - run: pnpm test
+      - run: pnpm run build
+      - name: Packed CLI runs from a clean directory
+        run: |
+          pnpm pack --pack-destination "$RUNNER_TEMP"
+          mkdir "$RUNNER_TEMP/smoke" && cd "$RUNNER_TEMP/smoke"
+          npm init -y >/dev/null
+          npm install "$RUNNER_TEMP"/anasabubakar-anchortrace-sdk-*.tgz
+          npx anchortrace --version
+          npx anchortrace reconcile "$GITHUB_WORKSPACE/examples/cases/matched-withdrawal.case.json"
