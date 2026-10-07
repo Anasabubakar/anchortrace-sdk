@@ -45,7 +45,7 @@ export function reconcileSupplied(input: RunInput): Report {
   if (first !== undefined && looksLikeCase(first.value)) {
     if (input.records.length > 1) throw new InputError("A case file must be the only record input");
     const c = parseCase(first.value);
-    const rid = supplied("sep24_record", first);
+    const rid = supplied("sep24_record", c.synthetic ? { ...first, label: `${first.label} [synthetic example: the SEP-24 record is not from a real anchor]` } : first);
     for (const r of parseSep24Records(c.records)) snapshots.push({ record: r, sourceId: rid });
     const ev = parseEvidenceFile(c.evidence, rid);
     const evSourceId = nextId(++counter);
