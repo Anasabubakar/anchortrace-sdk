@@ -1,0 +1,960 @@
+{
+  "title": "AnchorTrace report v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "reportVersion": {
+      "type": "string",
+      "const": "1"
+    },
+    "tool": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "sep24_record",
+              "evidence"
+            ]
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "supplied_file",
+              "horizon"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "network": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "networkPassphrase": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fetchedAt": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "httpStatus": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": -9007199254740991,
+                "maximum": 9007199254740991
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "role",
+          "kind",
+          "label",
+          "sha256",
+          "url",
+          "network",
+          "networkPassphrase",
+          "fetchedAt",
+          "httpStatus"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "options": {
+      "type": "object",
+      "properties": {
+        "feePolicy": {
+          "type": "string",
+          "enum": [
+            "anchor_deducted",
+            "customer_paid_on_top",
+            "no_fee"
+          ]
+        },
+        "feePolicySource": {
+          "type": "string",
+          "enum": [
+            "default",
+            "option"
+          ]
+        },
+        "assetOverride": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "anchorAccount": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amountToleranceBps": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "expectedNetwork": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "feePolicy",
+        "feePolicySource",
+        "assetOverride",
+        "anchorAccount",
+        "amountToleranceBps",
+        "expectedNetwork"
+      ],
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "matched": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "pending": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "insufficient_evidence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "unsupported": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "ambiguous": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "discrepant": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "matched",
+        "pending",
+        "insufficient_evidence",
+        "unsupported",
+        "ambiguous",
+        "discrepant"
+      ],
+      "additionalProperties": false
+    },
+    "overall": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "matched",
+            "pending",
+            "insufficient_evidence",
+            "unsupported",
+            "ambiguous",
+            "discrepant"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "transactions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "deposit",
+              "withdrawal"
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "matched",
+              "pending",
+              "insufficient_evidence",
+              "unsupported",
+              "ambiguous",
+              "discrepant"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          },
+          "currentStatus": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string"
+              },
+              "known": {
+                "type": "boolean"
+              },
+              "expectation": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "required",
+                      "inflight",
+                      "failure",
+                      "refunded"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "electedBy": {
+                "type": "string",
+                "enum": [
+                  "single_snapshot",
+                  "latest_timestamp",
+                  "lifecycle_rank"
+                ]
+              }
+            },
+            "required": [
+              "value",
+              "known",
+              "expectation",
+              "electedBy"
+            ],
+            "additionalProperties": false
+          },
+          "timeline": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "index": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "status": {
+                  "type": "string"
+                },
+                "statusKnown": {
+                  "type": "boolean"
+                },
+                "time": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "timeSource": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "updated_at",
+                        "completed_at",
+                        "started_at"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "occurrences": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "sourceIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "stellarTransactionId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "message": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "flags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "time_unknown",
+                      "time_invalid",
+                      "conflicting_content",
+                      "after_terminal",
+                      "current"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "index",
+                "status",
+                "statusKnown",
+                "time",
+                "timeSource",
+                "occurrences",
+                "sourceIds",
+                "stellarTransactionId",
+                "message",
+                "flags"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "expected": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "direction": {
+                    "type": "string",
+                    "enum": [
+                      "wallet_to_anchor",
+                      "anchor_to_wallet"
+                    ]
+                  },
+                  "destination": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "asset": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "amount": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "memoType": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "memo": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "source": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "transactionHash": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "basis": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "direction",
+                  "destination",
+                  "asset",
+                  "amount",
+                  "memoType",
+                  "memo",
+                  "source",
+                  "transactionHash",
+                  "basis"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "amounts": {
+            "type": "object",
+            "properties": {
+              "amountIn": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amountInAsset": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amountOut": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "amountOutAsset": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "feeTotal": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "feeAsset": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "refundedTotal": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "refundFeeTotal": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "amountIn",
+              "amountInAsset",
+              "amountOut",
+              "amountOutAsset",
+              "feeTotal",
+              "feeAsset",
+              "refundedTotal",
+              "refundFeeTotal"
+            ],
+            "additionalProperties": false
+          },
+          "matching": {
+            "type": "object",
+            "properties": {
+              "linkedBy": {
+                "type": "string",
+                "enum": [
+                  "stellar_transaction_id",
+                  "search",
+                  "none"
+                ]
+              },
+              "candidates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "transactionHash": {
+                      "type": "string"
+                    },
+                    "operationId": {
+                      "type": "string"
+                    },
+                    "operationIndex": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "purpose": {
+                      "type": "string",
+                      "enum": [
+                        "transfer",
+                        "refund"
+                      ]
+                    },
+                    "role": {
+                      "type": "string",
+                      "enum": [
+                        "matched",
+                        "conflicting",
+                        "unsupported",
+                        "unrelated"
+                      ]
+                    },
+                    "sourceId": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "to": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "asset": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "amount": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "memoType": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "memo": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "transactionSuccessful": {
+                      "type": "boolean"
+                    },
+                    "checks": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "field": {
+                            "type": "string",
+                            "enum": [
+                              "destination",
+                              "asset",
+                              "issuer",
+                              "amount",
+                              "memo",
+                              "source"
+                            ]
+                          },
+                          "expected": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "observed": {
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "result": {
+                            "type": "string",
+                            "enum": [
+                              "equal",
+                              "different",
+                              "not_checked"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "field",
+                          "expected",
+                          "observed",
+                          "result"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "transactionHash",
+                    "operationId",
+                    "operationIndex",
+                    "type",
+                    "purpose",
+                    "role",
+                    "sourceId",
+                    "from",
+                    "to",
+                    "asset",
+                    "amount",
+                    "memoType",
+                    "memo",
+                    "transactionSuccessful",
+                    "checks"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "refunds": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "idType": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "result": {
+                      "type": "string",
+                      "enum": [
+                        "matched",
+                        "mismatch",
+                        "evidence_missing",
+                        "not_observable"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "idType",
+                    "amount",
+                    "result"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "linkedBy",
+              "candidates",
+              "refunds"
+            ],
+            "additionalProperties": false
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "enum": [
+                    "status_unknown",
+                    "status_not_valid_for_kind",
+                    "status_history_conflict",
+                    "status_after_terminal",
+                    "timeline_time_unknown",
+                    "duplicate_snapshots_collapsed",
+                    "record_field_missing",
+                    "record_field_invalid",
+                    "record_amounts_inconsistent",
+                    "amount_formula_skipped",
+                    "fee_present_under_no_fee_policy",
+                    "expected_asset_unknown",
+                    "memo_not_declared",
+                    "memo_type_not_declared",
+                    "awaiting_onchain_transfer",
+                    "onchain_leg_matched",
+                    "payment_before_status_advanced",
+                    "funds_received_but_terminal_failure",
+                    "wrong_destination",
+                    "wrong_asset",
+                    "wrong_issuer",
+                    "amount_mismatch",
+                    "memo_mismatch",
+                    "source_mismatch",
+                    "multiple_candidate_operations",
+                    "multiple_candidate_transactions",
+                    "transaction_has_no_matching_payment",
+                    "onchain_transaction_failed",
+                    "linked_by_search",
+                    "muxed_destination_observed",
+                    "unrelated_operation_ignored",
+                    "path_payment_not_supported",
+                    "claimable_balance_not_supported",
+                    "soroban_transfer_not_supported",
+                    "other_value_operation_not_supported",
+                    "unsupported_operation_alongside_match",
+                    "claimable_balance_deposit_not_supported",
+                    "stellar_transaction_id_missing",
+                    "onchain_evidence_missing",
+                    "operations_incomplete",
+                    "absence_not_provable",
+                    "evidence_fetch_failed",
+                    "horizon_transaction_not_found",
+                    "evidence_network_mismatch",
+                    "cross_asset_not_converted",
+                    "refund_evidence_missing",
+                    "refund_not_observable",
+                    "refund_payment_matched",
+                    "refund_mismatch",
+                    "external_payout_not_verified",
+                    "external_funds_not_verified"
+                  ]
+                },
+                "severity": {
+                  "type": "string",
+                  "enum": [
+                    "info",
+                    "warning",
+                    "error"
+                  ]
+                },
+                "effect": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "matched",
+                        "pending",
+                        "insufficient_evidence",
+                        "unsupported",
+                        "ambiguous",
+                        "discrepant"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "details": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "number",
+                      "boolean",
+                      "null"
+                    ]
+                  }
+                },
+                "refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "transactionHash": {
+                        "type": "string"
+                      },
+                      "operationId": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "operationIndex": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "sourceId": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "transactionHash",
+                      "operationId",
+                      "operationIndex",
+                      "sourceId"
+                    ],
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "required": [
+                "code",
+                "severity",
+                "effect",
+                "message"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "outcome",
+          "summary",
+          "currentStatus",
+          "timeline",
+          "expected",
+          "amounts",
+          "matching",
+          "findings"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "redaction": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "categories": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "accounts",
+                  "issuers",
+                  "memos",
+                  "emails",
+                  "hashes"
+                ]
+              }
+            }
+          },
+          "required": [
+            "categories"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "reportVersion",
+    "tool",
+    "generatedAt",
+    "inputs",
+    "options",
+    "summary",
+    "overall",
+    "transactions",
+    "limitations",
+    "redaction"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,183 @@
+{
+  "title": "AnchorTrace evidence file v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "evidenceVersion": {
+      "type": "string",
+      "const": "1"
+    },
+    "capture": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "type": "string"
+        },
+        "horizon": {
+          "type": "string"
+        },
+        "capturedAt": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "transaction": {
+            "type": "object",
+            "properties": {
+              "hash": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "successful": {
+                "type": "boolean"
+              },
+              "ledger": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "created_at": {
+                "type": "string"
+              },
+              "source_account": {
+                "type": "string"
+              },
+              "memo_type": {
+                "type": "string"
+              },
+              "memo": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fee_charged": {
+                "type": [
+                  "string",
+                  "number"
+                ]
+              },
+              "operation_count": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              }
+            },
+            "required": [
+              "hash",
+              "successful",
+              "ledger",
+              "created_at",
+              "source_account",
+              "operation_count"
+            ],
+            "additionalProperties": {}
+          },
+          "operations": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^\\d+$"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "transaction_hash": {
+                      "type": "string"
+                    },
+                    "transaction_successful": {
+                      "type": "boolean"
+                    },
+                    "source_account": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "transaction_hash",
+                    "source_account"
+                  ],
+                  "additionalProperties": {}
+                }
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "_embedded": {
+                    "type": "object",
+                    "properties": {
+                      "records": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "pattern": "^\\d+$"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "transaction_hash": {
+                              "type": "string"
+                            },
+                            "transaction_successful": {
+                              "type": "boolean"
+                            },
+                            "source_account": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "type",
+                            "transaction_hash",
+                            "source_account"
+                          ],
+                          "additionalProperties": {}
+                        }
+                      }
+                    },
+                    "required": [
+                      "records"
+                    ],
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "_embedded"
+                ],
+                "additionalProperties": {}
+              }
+            ]
+          }
+        },
+        "required": [
+          "transaction",
+          "operations"
+        ],
+        "additionalProperties": {}
+      }
+    }
+  },
+  "required": [
+    "evidenceVersion",
+    "items"
+  ],
+  "additionalProperties": {}
+}
