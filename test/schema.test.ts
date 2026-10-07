@@ -1,10 +1,12 @@
 import { readFileSync, readdirSync } from "node:fs";
-import Ajv2020 from "ajv/dist/2020.js";
+import Ajv2020Module from "ajv/dist/2020.js";
 import { describe, expect, it } from "vitest";
 import { SCHEMA_TARGETS, jsonSchemaFor } from "../src/schemas.ts";
 import { FINDING_CODES, OUTCOMES } from "../src/reportSchema.ts";
 
 const read = (p: string) => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), "utf8"));
+// ajv ships CommonJS; under NodeNext the constructor is on `.default`.
+const Ajv2020 = ((Ajv2020Module as unknown as { default?: typeof Ajv2020Module }).default ?? Ajv2020Module) as unknown as new (o: object) => { compile: (s: object) => { (d: unknown): boolean; errors?: unknown } };
 const ajv = new Ajv2020({ strict: false, allErrors: true });
 const report = ajv.compile(read("schema/report.v1.schema.json"));
 const evidence = ajv.compile(read("schema/evidence.v1.schema.json"));
