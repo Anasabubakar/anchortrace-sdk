@@ -1,0 +1,85 @@
+{
+  "caseVersion": "1",
+  "id": "unsupported-claimable-balance",
+  "title": "Unsupported: claimable balance",
+  "description": "The transfer was a claimable balance. Not a delivered payment until claimed; unsupported in v1.",
+  "synthetic": true,
+  "evidenceNote": "Recorded Horizon testnet responses for transaction 47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4 (see fixtures/testnet/manifest.json). The SEP-24 record is SYNTHETIC: no real anchor produced it.",
+  "intendedOutcome": "unsupported",
+  "records": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "status": "completed",
+      "started_at": "2026-10-07T13:55:00Z",
+      "updated_at": "2026-10-07T14:30:00Z",
+      "completed_at": "2026-10-07T14:30:00Z",
+      "amount_in": "5.0000000",
+      "amount_in_asset": "stellar:native",
+      "amount_out": "4.0000000",
+      "fee_details": {
+        "total": "1.0000000",
+        "asset": "stellar:native"
+      },
+      "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+      "withdraw_memo": "1007",
+      "withdraw_memo_type": "id",
+      "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+      "stellar_transaction_id": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4"
+    }
+  ],
+  "evidence": {
+    "evidenceVersion": "1",
+    "capture": {
+      "network": "testnet",
+      "horizon": "https://horizon-testnet.stellar.org",
+      "capturedAt": "2026-10-07T14:02:53.077Z",
+      "note": "Raw Horizon responses recorded by scripts/testnet-fixtures.mjs; XDR blobs, signatures and _links trimmed for size."
+    },
+    "items": [
+      {
+        "transaction": {
+          "hash": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+          "successful": true,
+          "ledger": 5071637,
+          "created_at": "2026-10-07T14:02:52Z",
+          "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "memo_type": "id",
+          "memo": "1007",
+          "fee_charged": "100",
+          "operation_count": 1,
+          "id": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+          "fee_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "max_fee": "100"
+        },
+        "operations": {
+          "_embedded": {
+            "records": [
+              {
+                "id": "21782515052199937",
+                "type": "create_claimable_balance",
+                "transaction_hash": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+                "transaction_successful": true,
+                "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "type_i": 14,
+                "created_at": "2026-10-07T14:02:52Z",
+                "sponsor": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "asset": "native",
+                "amount": "5.0000000",
+                "claimants": [
+                  {
+                    "destination": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                    "predicate": {
+                      "unconditional": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "options": {}
+}

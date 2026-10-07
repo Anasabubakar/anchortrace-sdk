@@ -1,0 +1,95 @@
+{
+  "caseVersion": "1",
+  "id": "ambiguous-multi-operation",
+  "title": "Ambiguous multi-operation withdrawal",
+  "description": "One transaction pays the anchor twice (60 + 40 = 100). AnchorTrace refuses to attribute the operations to one withdrawal even though the sum equals amount_in.",
+  "synthetic": true,
+  "evidenceNote": "Recorded Horizon testnet responses for transaction 76eee990ef2b8ace20331c1a46d30b3cdf564f5bc30983f9707c3c002dcb550d (see fixtures/testnet/manifest.json). The SEP-24 record is SYNTHETIC: no real anchor produced it.",
+  "intendedOutcome": "ambiguous",
+  "records": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "status": "completed",
+      "started_at": "2026-10-07T13:55:00Z",
+      "updated_at": "2026-10-07T14:30:00Z",
+      "completed_at": "2026-10-07T14:30:00Z",
+      "amount_in": "100.0000000",
+      "amount_in_asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+      "amount_out": "98.0000000",
+      "fee_details": {
+        "total": "2.0000000",
+        "asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD"
+      },
+      "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+      "withdraw_memo": "1005",
+      "withdraw_memo_type": "id",
+      "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+      "stellar_transaction_id": "76eee990ef2b8ace20331c1a46d30b3cdf564f5bc30983f9707c3c002dcb550d"
+    }
+  ],
+  "evidence": {
+    "evidenceVersion": "1",
+    "capture": {
+      "network": "testnet",
+      "horizon": "https://horizon-testnet.stellar.org",
+      "capturedAt": "2026-10-07T14:02:43.212Z",
+      "note": "Raw Horizon responses recorded by scripts/testnet-fixtures.mjs; XDR blobs, signatures and _links trimmed for size."
+    },
+    "items": [
+      {
+        "transaction": {
+          "hash": "76eee990ef2b8ace20331c1a46d30b3cdf564f5bc30983f9707c3c002dcb550d",
+          "successful": true,
+          "ledger": 5071635,
+          "created_at": "2026-10-07T14:02:42Z",
+          "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "memo_type": "id",
+          "memo": "1005",
+          "fee_charged": "200",
+          "operation_count": 2,
+          "id": "76eee990ef2b8ace20331c1a46d30b3cdf564f5bc30983f9707c3c002dcb550d",
+          "fee_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "max_fee": "200"
+        },
+        "operations": {
+          "_embedded": {
+            "records": [
+              {
+                "id": "21782506462257153",
+                "type": "payment",
+                "transaction_hash": "76eee990ef2b8ace20331c1a46d30b3cdf564f5bc30983f9707c3c002dcb550d",
+                "transaction_successful": true,
+                "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "type_i": 1,
+                "created_at": "2026-10-07T14:02:42Z",
+                "asset_type": "credit_alphanum12",
+                "asset_code": "TRACEUSD",
+                "asset_issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "to": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "amount": "60.0000000"
+              },
+              {
+                "id": "21782506462257154",
+                "type": "payment",
+                "transaction_hash": "76eee990ef2b8ace20331c1a46d30b3cdf564f5bc30983f9707c3c002dcb550d",
+                "transaction_successful": true,
+                "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "type_i": 1,
+                "created_at": "2026-10-07T14:02:42Z",
+                "asset_type": "credit_alphanum12",
+                "asset_code": "TRACEUSD",
+                "asset_issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "to": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "amount": "40.0000000"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "options": {}
+}

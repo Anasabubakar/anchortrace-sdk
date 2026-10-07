@@ -1,0 +1,107 @@
+{
+  "caseVersion": "1",
+  "id": "unsupported-soroban-transfer",
+  "title": "Unsupported: Soroban contract transfer",
+  "description": "The transfer was a call to the native Stellar Asset Contract (invoke_host_function). Unsupported in v1.",
+  "synthetic": true,
+  "evidenceNote": "Recorded Horizon testnet responses for transaction 22c0dd38e9dbfa432f9c5451a173a87d838fbb4fb702073a62d5c182feb139d0 (see fixtures/testnet/manifest.json). The SEP-24 record is SYNTHETIC: no real anchor produced it.",
+  "intendedOutcome": "unsupported",
+  "records": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "status": "completed",
+      "started_at": "2026-10-07T13:55:00Z",
+      "updated_at": "2026-10-07T14:30:00Z",
+      "completed_at": "2026-10-07T14:30:00Z",
+      "amount_in": "5.0000000",
+      "amount_in_asset": "stellar:native",
+      "amount_out": "4.0000000",
+      "fee_details": {
+        "total": "1.0000000",
+        "asset": "stellar:native"
+      },
+      "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+      "withdraw_memo": null,
+      "withdraw_memo_type": null,
+      "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+      "stellar_transaction_id": "22c0dd38e9dbfa432f9c5451a173a87d838fbb4fb702073a62d5c182feb139d0"
+    }
+  ],
+  "evidence": {
+    "evidenceVersion": "1",
+    "capture": {
+      "network": "testnet",
+      "horizon": "https://horizon-testnet.stellar.org",
+      "capturedAt": "2026-10-07T14:03:15.210Z",
+      "note": "Raw Horizon responses recorded by scripts/testnet-fixtures.mjs; XDR blobs, signatures and _links trimmed for size."
+    },
+    "items": [
+      {
+        "transaction": {
+          "hash": "22c0dd38e9dbfa432f9c5451a173a87d838fbb4fb702073a62d5c182feb139d0",
+          "successful": true,
+          "ledger": 5071641,
+          "created_at": "2026-10-07T14:03:12Z",
+          "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "memo_type": "none",
+          "fee_charged": "13737",
+          "operation_count": 1,
+          "id": "22c0dd38e9dbfa432f9c5451a173a87d838fbb4fb702073a62d5c182feb139d0",
+          "fee_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "max_fee": "23560"
+        },
+        "operations": {
+          "_embedded": {
+            "records": [
+              {
+                "id": "21782532232093697",
+                "type": "invoke_host_function",
+                "transaction_hash": "22c0dd38e9dbfa432f9c5451a173a87d838fbb4fb702073a62d5c182feb139d0",
+                "transaction_successful": true,
+                "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "type_i": 24,
+                "created_at": "2026-10-07T14:03:12Z",
+                "function": "HostFunctionTypeHostFunctionTypeInvokeContract",
+                "parameters": [
+                  {
+                    "value": "AAAAEgAAAAHXkotywnA8z+r365/0701QSlWouXn8m0UOoshCtNHOYQ==",
+                    "type": "Address"
+                  },
+                  {
+                    "value": "AAAADwAAAAh0cmFuc2Zlcg==",
+                    "type": "Sym"
+                  },
+                  {
+                    "value": "AAAAEgAAAAAAAAAArEghBz5boMu4/V92TY05V/x0xLJKbkFPNGiHP/5Ia0s=",
+                    "type": "Address"
+                  },
+                  {
+                    "value": "AAAAEgAAAAAAAAAARcx6q5LAx8oyO+JeWh+laYEbccUyweb+pQngHDVoqoQ=",
+                    "type": "Address"
+                  },
+                  {
+                    "value": "AAAACgAAAAAAAAAAAAAAAAL68IA=",
+                    "type": "I128"
+                  }
+                ],
+                "address": "",
+                "salt": "",
+                "asset_balance_changes": [
+                  {
+                    "asset_type": "native",
+                    "type": "transfer",
+                    "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                    "to": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                    "amount": "5.0000000"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "options": {}
+}

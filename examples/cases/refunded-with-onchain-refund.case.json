@@ -1,0 +1,92 @@
+{
+  "caseVersion": "1",
+  "id": "refunded-with-onchain-refund",
+  "title": "Refunded with an on-chain refund payment",
+  "description": "A withdrawal of 50 TRACEUSD was refunded in full by a Stellar payment back to the sender. The refund transaction is checked for destination, asset and issuer, and amount.",
+  "synthetic": true,
+  "evidenceNote": "Recorded Horizon testnet responses for transaction 6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49 (see fixtures/testnet/manifest.json). The SEP-24 record is SYNTHETIC: no real anchor produced it.",
+  "intendedOutcome": "matched",
+  "records": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "status": "refunded",
+      "started_at": "2026-10-07T13:55:00Z",
+      "updated_at": "2026-10-07T14:30:00Z",
+      "completed_at": "2026-10-07T14:30:00Z",
+      "amount_in": "50.0000000",
+      "amount_in_asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+      "amount_out": "0.0000000",
+      "fee_details": {
+        "total": "0.0000000",
+        "asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD"
+      },
+      "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+      "withdraw_memo": "1001",
+      "withdraw_memo_type": "id",
+      "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+      "refunds": {
+        "amount_refunded": "50.0000000",
+        "amount_fee": "0.0000000",
+        "payments": [
+          {
+            "id": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+            "id_type": "stellar",
+            "amount": "50.0000000",
+            "fee": "0.0000000"
+          }
+        ]
+      }
+    }
+  ],
+  "evidence": {
+    "evidenceVersion": "1",
+    "capture": {
+      "network": "testnet",
+      "horizon": "https://horizon-testnet.stellar.org",
+      "capturedAt": "2026-10-07T14:03:07.970Z",
+      "note": "Raw Horizon responses recorded by scripts/testnet-fixtures.mjs; XDR blobs, signatures and _links trimmed for size."
+    },
+    "items": [
+      {
+        "transaction": {
+          "hash": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+          "successful": true,
+          "ledger": 5071640,
+          "created_at": "2026-10-07T14:03:07Z",
+          "source_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+          "memo_type": "text",
+          "memo": "dep-2001",
+          "fee_charged": "100",
+          "operation_count": 1,
+          "memo_bytes": "ZGVwLTIwMDE=",
+          "id": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+          "fee_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+          "max_fee": "100"
+        },
+        "operations": {
+          "_embedded": {
+            "records": [
+              {
+                "id": "21782527937101825",
+                "type": "payment",
+                "transaction_hash": "6afa8149465121037f9429c4dc006a393a748a58aefefae23d5f0bb6621c4a49",
+                "transaction_successful": true,
+                "source_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "type_i": 1,
+                "created_at": "2026-10-07T14:03:07Z",
+                "asset_type": "credit_alphanum12",
+                "asset_code": "TRACEUSD",
+                "asset_issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "from": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "to": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "amount": "50.0000000"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "options": {}
+}

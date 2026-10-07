@@ -1,0 +1,80 @@
+{
+  "caseVersion": "1",
+  "id": "wrong-destination",
+  "title": "Wrong destination",
+  "description": "The payment is real and the right asset and amount, but it went to a different account than withdraw_anchor_account.",
+  "synthetic": true,
+  "evidenceNote": "Recorded Horizon testnet responses for transaction 49dc35522bb385b721addb66809cb1d8458fdfcd1f6c8a57761cad70a860b045 (see fixtures/testnet/manifest.json). The SEP-24 record is SYNTHETIC: no real anchor produced it.",
+  "intendedOutcome": "discrepant",
+  "records": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "status": "completed",
+      "started_at": "2026-10-07T13:55:00Z",
+      "updated_at": "2026-10-07T14:30:00Z",
+      "completed_at": "2026-10-07T14:30:00Z",
+      "amount_in": "100.0000000",
+      "amount_in_asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+      "amount_out": "98.0000000",
+      "fee_details": {
+        "total": "2.0000000",
+        "asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD"
+      },
+      "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+      "withdraw_memo": "1002",
+      "withdraw_memo_type": "id",
+      "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+      "stellar_transaction_id": "49dc35522bb385b721addb66809cb1d8458fdfcd1f6c8a57761cad70a860b045"
+    }
+  ],
+  "evidence": {
+    "evidenceVersion": "1",
+    "capture": {
+      "network": "testnet",
+      "horizon": "https://horizon-testnet.stellar.org",
+      "capturedAt": "2026-10-07T14:00:48.272Z",
+      "note": "Raw Horizon responses recorded by scripts/testnet-fixtures.mjs; XDR blobs, signatures and _links trimmed for size."
+    },
+    "items": [
+      {
+        "transaction": {
+          "hash": "49dc35522bb385b721addb66809cb1d8458fdfcd1f6c8a57761cad70a860b045",
+          "successful": true,
+          "ledger": 5071612,
+          "created_at": "2026-10-07T14:00:47Z",
+          "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "memo_type": "id",
+          "memo": "1002",
+          "fee_charged": "100",
+          "operation_count": 1,
+          "id": "49dc35522bb385b721addb66809cb1d8458fdfcd1f6c8a57761cad70a860b045",
+          "fee_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+          "max_fee": "100"
+        },
+        "operations": {
+          "_embedded": {
+            "records": [
+              {
+                "id": "21782407678017537",
+                "type": "payment",
+                "transaction_hash": "49dc35522bb385b721addb66809cb1d8458fdfcd1f6c8a57761cad70a860b045",
+                "transaction_successful": true,
+                "source_account": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "type_i": 1,
+                "created_at": "2026-10-07T14:00:47Z",
+                "asset_type": "credit_alphanum12",
+                "asset_code": "TRACEUSD",
+                "asset_issuer": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "to": "GAJF3UA262M4GDTH4SC6BKOVML5WEH2IRS4LRV7Y2FXJPX7XOBSWWWAZ",
+                "amount": "100.0000000"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "options": {}
+}

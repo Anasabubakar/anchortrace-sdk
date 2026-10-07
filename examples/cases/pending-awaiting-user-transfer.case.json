@@ -1,0 +1,38 @@
+{
+  "caseVersion": "1",
+  "id": "pending-awaiting-user-transfer",
+  "title": "Pending: waiting for the user's transfer",
+  "description": "Status is pending_user_transfer_start. No on-chain transfer is expected yet, so none is required.",
+  "synthetic": true,
+  "evidenceNote": "No evidence supplied for this case.",
+  "intendedOutcome": "pending",
+  "records": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "status": "pending_user_transfer_start",
+      "started_at": "2026-10-07T13:55:00Z",
+      "updated_at": "2026-10-07T13:56:00Z",
+      "amount_in": "100.0000000",
+      "amount_in_asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+      "amount_out": "98.0000000",
+      "fee_details": {
+        "total": "2.0000000",
+        "asset": "stellar:TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD"
+      },
+      "withdraw_anchor_account": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+      "withdraw_memo": "1001",
+      "withdraw_memo_type": "id",
+      "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH"
+    }
+  ],
+  "evidence": {
+    "evidenceVersion": "1",
+    "capture": {
+      "network": "testnet",
+      "note": "No evidence supplied for this case."
+    },
+    "items": []
+  },
+  "options": {}
+}
