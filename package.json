@@ -1,0 +1,54 @@
+{
+  "name": "@anasabubakar/anchortrace-sdk",
+  "version": "0.1.0",
+  "description": "Read-only explainable reconciliation of SEP-24 anchor transactions against Stellar classic payment evidence. Engine, Horizon adapter, CLI and report schema.",
+  "license": "MIT",
+  "author": "Anas Abubakar",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "bin": {
+    "anchortrace": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./schema/report.v1.schema.json": "./schema/report.v1.schema.json",
+    "./schema/evidence.v1.schema.json": "./schema/evidence.v1.schema.json",
+    "./schema/case.v1.schema.json": "./schema/case.v1.schema.json",
+    "./examples/examples.v1.json": "./examples/examples.v1.json"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "schema": "node --experimental-strip-types scripts/gen-schema.ts",
+    "check:schema": "node --experimental-strip-types scripts/gen-schema.ts --check",
+    "examples": "node --experimental-strip-types scripts/gen-examples.ts",
+    "check:examples": "node --experimental-strip-types scripts/gen-examples.ts --check",
+    "test:live": "ANCHORTRACE_LIVE=1 vitest run test/live"
+  },
+  "dependencies": {
+    "commander": "15.0.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@stellar/stellar-sdk": "17.2.1",
+    "@types/node": "26.6.4",
+    "typescript": "7.0.2",
+    "vitest": "5.0.3"
+  }
+}
