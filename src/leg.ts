@@ -347,13 +347,15 @@ export function evaluateLeg(leg: Leg, ctx: EvaluateContext): LegEvaluation {
 
   if (destOps.length >= 2) {
     for (const op of destOps) candidates.push(candidateOf(leg, tx, op, "conflicting", checksFor(leg, tx, op)));
+    const label = (op: EvidenceOperation) => `${op.amount ?? "?"} ${op.asset === null ? "?" : op.asset.kind === "native" ? "XLM" : op.asset.code}`;
     const byAsset = new Map<string, bigint>();
     for (const op of destOps) if (op.asset && op.amount) byAsset.set(assetKey(op.asset), (byAsset.get(assetKey(op.asset)) ?? 0n) + parseAmount(op.amount));
+    const totals = [...byAsset].map(([k, v]) => `${canon(v)} ${k === "native" ? "XLM" : k.split(":")[0]}`).join(", ");
     findings.push({
       code: "multiple_candidate_operations",
       severity: "error",
       effect: "ambiguous",
-      message: `Transaction ${tx.hash} contains ${destOps.length} payment operations to the expected destination (${[...byAsset].map(([k, v]) => `${canon(v)} ${k === "native" ? "XLM" : k.split(":")[0]}`).join(" + ")}); AnchorTrace cannot attribute them to a single withdrawal. Do not treat any single operation as the match.`,
+      message: `Transaction ${tx.hash} contains ${destOps.length} payment operations to the expected destination (${destOps.map(label).join(" + ")}; total ${totals}); AnchorTrace cannot attribute them to a single withdrawal. Do not treat any single operation as the match.`,
       details: { operations: destOps.length },
       refs: destOps.map((o) => ref(tx!, o)),
     });
