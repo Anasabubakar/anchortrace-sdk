@@ -1,0 +1,28 @@
+AnchorTrace report v1 (anchortrace 0.1.0), generated 2026-10-07T00:00:00.000Z
+Fee policy: anchor_deducted (default)
+
+Overall: UNSUPPORTED (1 unsupported)
+Note: confirmation on chain is not a bank payout. AnchorTrace checks only the Stellar leg.
+
+Transaction syn-wd-001 (withdrawal): UNSUPPORTED
+  Status: completed, elected by single snapshot
+  Operation 21782510757220353 (path_payment_strict_send) in bea39147fb218d958d1fea34b40e4f6a38ef855672af648d7f6b3e17d64029a7: A path payment can deliver to the expected destination but is not a direct payment; AnchorTrace does not interpret it, so it is unsupported rather than matched.
+  Expected leg: 5.0000000 native GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH -> GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI memo(id)=1006, tx bea39147...4029a7
+  Timeline:
+    1. 2026-10-07T14:30:00.000Z  completed  <- current
+  Evidence considered (linked by stellar_transaction_id):
+    [unsupported] path_payment_strict_send op 21782510757220353 in bea39147...4029a7: 5.0000000 native GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH -> GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI memo(id)=1006
+  Findings:
+    [warning] unsupported path_payment_not_supported: Operation 21782510757220353 (path_payment_strict_send) in bea39147fb218d958d1fea34b40e4f6a38ef855672af648d7f6b3e17d64029a7: A path payment can deliver to the expected destination but is not a direct payment; AnchorTrace does not interpret it, so it is unsupported rather than matched.
+    [info] note external_payout_not_verified: Confirmation on chain is not a bank payout: AnchorTrace checks only the Stellar leg. The external payout (bank, cash or other rail) is not observable here and remains the anchor's claim.
+
+Inputs:
+  src-1 sep24_record supplied file unsupported-path-payment.case.json
+  src-2 evidence supplied file unsupported-path-payment.case.json (embedded evidence)
+
+Limitations:
+  - Confirmation on chain is not a bank payout. For a withdrawal, a confirmed Stellar payment to the anchor shows only the wallet-side transfer. AnchorTrace cannot observe the anchor's bank, cash or other external payout; a status of completed or an external_transaction_id is the anchor's own claim and stays unverified.
+  - Only SEP-24 transactions and classic direct payment operations are reconciled. Path payments, claimable balances, Soroban contract transfers and other value-moving forms are reported as unsupported, never as matched.
+  - Absence of evidence is not evidence of absence: supplied files and single-hash Horizon reads cannot prove that no payment happened. A failed or missing read is reported as insufficient_evidence, never as a mismatch.
+  - Evidence is exactly what the supplied file or the named Horizon returned at the recorded time. AnchorTrace does not verify ledger history cryptographically.
+  - The Stellar network fee (fee_charged) is not the anchor fee and is not compared. Anchor fees come only from the SEP-24 record.

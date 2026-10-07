@@ -1,0 +1,252 @@
+{
+  "reportVersion": "1",
+  "tool": {
+    "name": "anchortrace",
+    "version": "0.1.0"
+  },
+  "generatedAt": "2026-10-07T00:00:00.000Z",
+  "inputs": [
+    {
+      "id": "src-1",
+      "role": "sep24_record",
+      "kind": "supplied_file",
+      "label": "reordered-and-duplicate-updates.case.json",
+      "sha256": null,
+      "url": null,
+      "network": null,
+      "networkPassphrase": null,
+      "fetchedAt": null,
+      "httpStatus": null
+    },
+    {
+      "id": "src-2",
+      "role": "evidence",
+      "kind": "supplied_file",
+      "label": "reordered-and-duplicate-updates.case.json (embedded evidence)",
+      "sha256": null,
+      "url": null,
+      "network": "testnet",
+      "networkPassphrase": null,
+      "fetchedAt": "2026-10-07T14:00:43.205Z",
+      "httpStatus": null
+    }
+  ],
+  "options": {
+    "feePolicy": "anchor_deducted",
+    "feePolicySource": "default",
+    "assetOverride": null,
+    "anchorAccount": null,
+    "amountToleranceBps": 0,
+    "expectedNetwork": null
+  },
+  "summary": {
+    "matched": 1,
+    "pending": 0,
+    "insufficient_evidence": 0,
+    "unsupported": 0,
+    "ambiguous": 0,
+    "discrepant": 0
+  },
+  "overall": "matched",
+  "transactions": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "currentStatus": {
+        "value": "completed",
+        "known": true,
+        "expectation": "required",
+        "electedBy": "latest_timestamp"
+      },
+      "timeline": [
+        {
+          "index": 0,
+          "status": "pending_user_transfer_start",
+          "statusKnown": true,
+          "time": "2026-10-07T13:56:00.000Z",
+          "timeSource": "updated_at",
+          "occurrences": 1,
+          "sourceIds": [
+            "src-1"
+          ],
+          "stellarTransactionId": null,
+          "message": null,
+          "flags": []
+        },
+        {
+          "index": 1,
+          "status": "pending_anchor",
+          "statusKnown": true,
+          "time": "2026-10-07T14:01:00.000Z",
+          "timeSource": "updated_at",
+          "occurrences": 2,
+          "sourceIds": [
+            "src-1"
+          ],
+          "stellarTransactionId": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+          "message": null,
+          "flags": []
+        },
+        {
+          "index": 2,
+          "status": "pending_external",
+          "statusKnown": true,
+          "time": "2026-10-07T14:05:00.000Z",
+          "timeSource": "updated_at",
+          "occurrences": 1,
+          "sourceIds": [
+            "src-1"
+          ],
+          "stellarTransactionId": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+          "message": null,
+          "flags": []
+        },
+        {
+          "index": 3,
+          "status": "completed",
+          "statusKnown": true,
+          "time": "2026-10-07T14:30:00.000Z",
+          "timeSource": "updated_at",
+          "occurrences": 2,
+          "sourceIds": [
+            "src-1"
+          ],
+          "stellarTransactionId": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+          "message": null,
+          "flags": [
+            "current"
+          ]
+        }
+      ],
+      "outcome": "matched",
+      "summary": "The on-chain transfer matches the record (destination, asset and issuer, amount, memo, sender). The record's status is completed. Chain confirmation is not proof of the external payout.",
+      "expected": {
+        "direction": "wallet_to_anchor",
+        "destination": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+        "asset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+        "amount": "100.0000000",
+        "memoType": "id",
+        "memo": "1001",
+        "source": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+        "transactionHash": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+        "basis": {
+          "asset": "amount_in_asset",
+          "destination": "withdraw_anchor_account",
+          "amount": "amount_in (anchor_deducted)",
+          "source": "from",
+          "memo": "withdraw_memo"
+        }
+      },
+      "amounts": {
+        "amountIn": "100.0000000",
+        "amountInAsset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+        "amountOut": "98.0000000",
+        "amountOutAsset": null,
+        "feeTotal": "2.0000000",
+        "feeAsset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+        "refundedTotal": null,
+        "refundFeeTotal": null
+      },
+      "matching": {
+        "linkedBy": "stellar_transaction_id",
+        "candidates": [
+          {
+            "transactionHash": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+            "operationId": "21782403383037953",
+            "operationIndex": 0,
+            "type": "payment",
+            "purpose": "transfer",
+            "role": "matched",
+            "sourceId": "src-2",
+            "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+            "to": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+            "asset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+            "amount": "100.0000000",
+            "memoType": "id",
+            "memo": "1001",
+            "transactionSuccessful": true,
+            "checks": [
+              {
+                "field": "destination",
+                "expected": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "observed": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "result": "equal"
+              },
+              {
+                "field": "asset",
+                "expected": "TRACEUSD",
+                "observed": "TRACEUSD",
+                "result": "equal"
+              },
+              {
+                "field": "issuer",
+                "expected": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "observed": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "result": "equal"
+              },
+              {
+                "field": "amount",
+                "expected": "100.0000000",
+                "observed": "100.0000000",
+                "result": "equal"
+              },
+              {
+                "field": "memo",
+                "expected": "1001",
+                "observed": "1001",
+                "result": "equal"
+              },
+              {
+                "field": "source",
+                "expected": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "observed": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "result": "equal"
+              }
+            ]
+          }
+        ],
+        "refunds": []
+      },
+      "findings": [
+        {
+          "code": "onchain_leg_matched",
+          "severity": "info",
+          "effect": "matched",
+          "message": "The on-chain transfer matches the record (destination, asset and issuer, amount, memo, sender). The record's status is completed.",
+          "refs": [
+            {
+              "transactionHash": "70e181ec6b886344c1853d078aeb7a36d1ba25431fffa058ef00fe68a1400efd",
+              "operationId": "21782403383037953",
+              "operationIndex": 0,
+              "sourceId": "src-2"
+            }
+          ]
+        },
+        {
+          "code": "duplicate_snapshots_collapsed",
+          "severity": "info",
+          "effect": null,
+          "message": "2 duplicate snapshot(s) with identical content were collapsed into 2 timeline entries.",
+          "details": {
+            "snapshots": 6,
+            "entries": 4
+          }
+        },
+        {
+          "code": "external_payout_not_verified",
+          "severity": "info",
+          "effect": null,
+          "message": "Confirmation on chain is not a bank payout: AnchorTrace checks only the Stellar leg. The external payout (bank, cash or other rail) is not observable here and remains the anchor's claim."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Confirmation on chain is not a bank payout. For a withdrawal, a confirmed Stellar payment to the anchor shows only the wallet-side transfer. AnchorTrace cannot observe the anchor's bank, cash or other external payout; a status of completed or an external_transaction_id is the anchor's own claim and stays unverified.",
+    "Only SEP-24 transactions and classic direct payment operations are reconciled. Path payments, claimable balances, Soroban contract transfers and other value-moving forms are reported as unsupported, never as matched.",
+    "Absence of evidence is not evidence of absence: supplied files and single-hash Horizon reads cannot prove that no payment happened. A failed or missing read is reported as insufficient_evidence, never as a mismatch.",
+    "Evidence is exactly what the supplied file or the named Horizon returned at the recorded time. AnchorTrace does not verify ledger history cryptographically.",
+    "The Stellar network fee (fee_charged) is not the anchor fee and is not compared. Anchor fees come only from the SEP-24 record."
+  ],
+  "redaction": null
+}

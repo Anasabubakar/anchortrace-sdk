@@ -1,0 +1,205 @@
+{
+  "reportVersion": "1",
+  "tool": {
+    "name": "anchortrace",
+    "version": "0.1.0"
+  },
+  "generatedAt": "2026-10-07T00:00:00.000Z",
+  "inputs": [
+    {
+      "id": "src-1",
+      "role": "sep24_record",
+      "kind": "supplied_file",
+      "label": "wrong-amount.case.json",
+      "sha256": null,
+      "url": null,
+      "network": null,
+      "networkPassphrase": null,
+      "fetchedAt": null,
+      "httpStatus": null
+    },
+    {
+      "id": "src-2",
+      "role": "evidence",
+      "kind": "supplied_file",
+      "label": "wrong-amount.case.json (embedded evidence)",
+      "sha256": null,
+      "url": null,
+      "network": "testnet",
+      "networkPassphrase": null,
+      "fetchedAt": "2026-10-07T14:00:58.194Z",
+      "httpStatus": null
+    }
+  ],
+  "options": {
+    "feePolicy": "anchor_deducted",
+    "feePolicySource": "default",
+    "assetOverride": null,
+    "anchorAccount": null,
+    "amountToleranceBps": 0,
+    "expectedNetwork": null
+  },
+  "summary": {
+    "matched": 0,
+    "pending": 0,
+    "insufficient_evidence": 0,
+    "unsupported": 0,
+    "ambiguous": 0,
+    "discrepant": 1
+  },
+  "overall": "discrepant",
+  "transactions": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "currentStatus": {
+        "value": "completed",
+        "known": true,
+        "expectation": "required",
+        "electedBy": "single_snapshot"
+      },
+      "timeline": [
+        {
+          "index": 0,
+          "status": "completed",
+          "statusKnown": true,
+          "time": "2026-10-07T14:30:00.000Z",
+          "timeSource": "updated_at",
+          "occurrences": 1,
+          "sourceIds": [
+            "src-1"
+          ],
+          "stellarTransactionId": "b854aeb2a7af625bc8e8f67ee2241a17f5d109eefec5d3272b755bd0634dd5e1",
+          "message": null,
+          "flags": [
+            "current"
+          ]
+        }
+      ],
+      "outcome": "discrepant",
+      "summary": "Operation 21782416267943937 paid 99.5000000 but the record expects 100.0000000 (short by 0.5000000).",
+      "expected": {
+        "direction": "wallet_to_anchor",
+        "destination": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+        "asset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+        "amount": "100.0000000",
+        "memoType": "id",
+        "memo": "1004",
+        "source": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+        "transactionHash": "b854aeb2a7af625bc8e8f67ee2241a17f5d109eefec5d3272b755bd0634dd5e1",
+        "basis": {
+          "asset": "amount_in_asset",
+          "destination": "withdraw_anchor_account",
+          "amount": "amount_in (anchor_deducted)",
+          "source": "from",
+          "memo": "withdraw_memo"
+        }
+      },
+      "amounts": {
+        "amountIn": "100.0000000",
+        "amountInAsset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+        "amountOut": "98.0000000",
+        "amountOutAsset": null,
+        "feeTotal": "2.0000000",
+        "feeAsset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+        "refundedTotal": null,
+        "refundFeeTotal": null
+      },
+      "matching": {
+        "linkedBy": "stellar_transaction_id",
+        "candidates": [
+          {
+            "transactionHash": "b854aeb2a7af625bc8e8f67ee2241a17f5d109eefec5d3272b755bd0634dd5e1",
+            "operationId": "21782416267943937",
+            "operationIndex": 0,
+            "type": "payment",
+            "purpose": "transfer",
+            "role": "conflicting",
+            "sourceId": "src-2",
+            "from": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+            "to": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+            "asset": "TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+            "amount": "99.5000000",
+            "memoType": "id",
+            "memo": "1004",
+            "transactionSuccessful": true,
+            "checks": [
+              {
+                "field": "destination",
+                "expected": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "observed": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+                "result": "equal"
+              },
+              {
+                "field": "asset",
+                "expected": "TRACEUSD",
+                "observed": "TRACEUSD",
+                "result": "equal"
+              },
+              {
+                "field": "issuer",
+                "expected": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "observed": "GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD",
+                "result": "equal"
+              },
+              {
+                "field": "amount",
+                "expected": "100.0000000",
+                "observed": "99.5000000",
+                "result": "different"
+              },
+              {
+                "field": "memo",
+                "expected": "1004",
+                "observed": "1004",
+                "result": "equal"
+              },
+              {
+                "field": "source",
+                "expected": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "observed": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+                "result": "equal"
+              }
+            ]
+          }
+        ],
+        "refunds": []
+      },
+      "findings": [
+        {
+          "code": "amount_mismatch",
+          "severity": "error",
+          "effect": "discrepant",
+          "message": "Operation 21782416267943937 paid 99.5000000 but the record expects 100.0000000 (short by 0.5000000).",
+          "details": {
+            "expected": "100.0000000",
+            "observed": "99.5000000",
+            "differenceStroops": "-5000000"
+          },
+          "refs": [
+            {
+              "transactionHash": "b854aeb2a7af625bc8e8f67ee2241a17f5d109eefec5d3272b755bd0634dd5e1",
+              "operationId": "21782416267943937",
+              "operationIndex": 0,
+              "sourceId": "src-2"
+            }
+          ]
+        },
+        {
+          "code": "external_payout_not_verified",
+          "severity": "info",
+          "effect": null,
+          "message": "Confirmation on chain is not a bank payout: AnchorTrace checks only the Stellar leg. The external payout (bank, cash or other rail) is not observable here and remains the anchor's claim."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Confirmation on chain is not a bank payout. For a withdrawal, a confirmed Stellar payment to the anchor shows only the wallet-side transfer. AnchorTrace cannot observe the anchor's bank, cash or other external payout; a status of completed or an external_transaction_id is the anchor's own claim and stays unverified.",
+    "Only SEP-24 transactions and classic direct payment operations are reconciled. Path payments, claimable balances, Soroban contract transfers and other value-moving forms are reported as unsupported, never as matched.",
+    "Absence of evidence is not evidence of absence: supplied files and single-hash Horizon reads cannot prove that no payment happened. A failed or missing read is reported as insufficient_evidence, never as a mismatch.",
+    "Evidence is exactly what the supplied file or the named Horizon returned at the recorded time. AnchorTrace does not verify ledger history cryptographically.",
+    "The Stellar network fee (fee_charged) is not the anchor fee and is not compared. Anchor fees come only from the SEP-24 record."
+  ],
+  "redaction": null
+}

@@ -1,0 +1,166 @@
+{
+  "reportVersion": "1",
+  "tool": {
+    "name": "anchortrace",
+    "version": "0.1.0"
+  },
+  "generatedAt": "2026-10-07T00:00:00.000Z",
+  "inputs": [
+    {
+      "id": "src-1",
+      "role": "sep24_record",
+      "kind": "supplied_file",
+      "label": "unsupported-claimable-balance.case.json",
+      "sha256": null,
+      "url": null,
+      "network": null,
+      "networkPassphrase": null,
+      "fetchedAt": null,
+      "httpStatus": null
+    },
+    {
+      "id": "src-2",
+      "role": "evidence",
+      "kind": "supplied_file",
+      "label": "unsupported-claimable-balance.case.json (embedded evidence)",
+      "sha256": null,
+      "url": null,
+      "network": "testnet",
+      "networkPassphrase": null,
+      "fetchedAt": "2026-10-07T14:02:53.077Z",
+      "httpStatus": null
+    }
+  ],
+  "options": {
+    "feePolicy": "anchor_deducted",
+    "feePolicySource": "default",
+    "assetOverride": null,
+    "anchorAccount": null,
+    "amountToleranceBps": 0,
+    "expectedNetwork": null
+  },
+  "summary": {
+    "matched": 0,
+    "pending": 0,
+    "insufficient_evidence": 0,
+    "unsupported": 1,
+    "ambiguous": 0,
+    "discrepant": 0
+  },
+  "overall": "unsupported",
+  "transactions": [
+    {
+      "id": "syn-wd-001",
+      "kind": "withdrawal",
+      "currentStatus": {
+        "value": "completed",
+        "known": true,
+        "expectation": "required",
+        "electedBy": "single_snapshot"
+      },
+      "timeline": [
+        {
+          "index": 0,
+          "status": "completed",
+          "statusKnown": true,
+          "time": "2026-10-07T14:30:00.000Z",
+          "timeSource": "updated_at",
+          "occurrences": 1,
+          "sourceIds": [
+            "src-1"
+          ],
+          "stellarTransactionId": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+          "message": null,
+          "flags": [
+            "current"
+          ]
+        }
+      ],
+      "outcome": "unsupported",
+      "summary": "Operation 21782515052199937 (create_claimable_balance) in 47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4: A claimable balance is not a delivered payment until it is claimed; AnchorTrace does not interpret claimable balances, so it is unsupported rather than matched.",
+      "expected": {
+        "direction": "wallet_to_anchor",
+        "destination": "GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI",
+        "asset": "native",
+        "amount": "5.0000000",
+        "memoType": "id",
+        "memo": "1007",
+        "source": "GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH",
+        "transactionHash": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+        "basis": {
+          "asset": "amount_in_asset",
+          "destination": "withdraw_anchor_account",
+          "amount": "amount_in (anchor_deducted)",
+          "source": "from",
+          "memo": "withdraw_memo"
+        }
+      },
+      "amounts": {
+        "amountIn": "5.0000000",
+        "amountInAsset": "native",
+        "amountOut": "4.0000000",
+        "amountOutAsset": null,
+        "feeTotal": "1.0000000",
+        "feeAsset": "native",
+        "refundedTotal": null,
+        "refundFeeTotal": null
+      },
+      "matching": {
+        "linkedBy": "stellar_transaction_id",
+        "candidates": [
+          {
+            "transactionHash": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+            "operationId": "21782515052199937",
+            "operationIndex": 0,
+            "type": "create_claimable_balance",
+            "purpose": "transfer",
+            "role": "unsupported",
+            "sourceId": "src-2",
+            "from": null,
+            "to": null,
+            "asset": "native",
+            "amount": "5.0000000",
+            "memoType": "id",
+            "memo": "1007",
+            "transactionSuccessful": true,
+            "checks": []
+          }
+        ],
+        "refunds": []
+      },
+      "findings": [
+        {
+          "code": "claimable_balance_not_supported",
+          "severity": "warning",
+          "effect": "unsupported",
+          "message": "Operation 21782515052199937 (create_claimable_balance) in 47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4: A claimable balance is not a delivered payment until it is claimed; AnchorTrace does not interpret claimable balances, so it is unsupported rather than matched.",
+          "details": {
+            "operationType": "create_claimable_balance"
+          },
+          "refs": [
+            {
+              "transactionHash": "47ad82bf1548a5af9fabf6cc8758d123cfe3d7db0aefe7c0f346486476f7bfb4",
+              "operationId": "21782515052199937",
+              "operationIndex": 0,
+              "sourceId": "src-2"
+            }
+          ]
+        },
+        {
+          "code": "external_payout_not_verified",
+          "severity": "info",
+          "effect": null,
+          "message": "Confirmation on chain is not a bank payout: AnchorTrace checks only the Stellar leg. The external payout (bank, cash or other rail) is not observable here and remains the anchor's claim."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Confirmation on chain is not a bank payout. For a withdrawal, a confirmed Stellar payment to the anchor shows only the wallet-side transfer. AnchorTrace cannot observe the anchor's bank, cash or other external payout; a status of completed or an external_transaction_id is the anchor's own claim and stays unverified.",
+    "Only SEP-24 transactions and classic direct payment operations are reconciled. Path payments, claimable balances, Soroban contract transfers and other value-moving forms are reported as unsupported, never as matched.",
+    "Absence of evidence is not evidence of absence: supplied files and single-hash Horizon reads cannot prove that no payment happened. A failed or missing read is reported as insufficient_evidence, never as a mismatch.",
+    "Evidence is exactly what the supplied file or the named Horizon returned at the recorded time. AnchorTrace does not verify ledger history cryptographically.",
+    "The Stellar network fee (fee_charged) is not the anchor fee and is not compared. Anchor fees come only from the SEP-24 record."
+  ],
+  "redaction": null
+}

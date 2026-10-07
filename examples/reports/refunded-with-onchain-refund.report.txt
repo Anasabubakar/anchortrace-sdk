@@ -1,0 +1,28 @@
+AnchorTrace report v1 (anchortrace 0.1.0), generated 2026-10-07T00:00:00.000Z
+Fee policy: anchor_deducted (default)
+
+Overall: MATCHED (1 matched)
+Note: confirmation on chain is not a bank payout. AnchorTrace checks only the Stellar leg.
+
+Transaction syn-wd-001 (withdrawal): MATCHED
+  Status: refunded, elected by single snapshot
+  1 on-chain refund payment(s) match the record (destination, asset and issuer, amount). Chain confirmation is not proof of the external payout.
+  Expected leg: 50.0000000 TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH -> GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI memo(id)=1001
+  Timeline:
+    1. 2026-10-07T14:30:00.000Z  refunded  <- current
+  Evidence considered (no link):
+    [matched] (refund) payment op 21782527937101825 in 6afa8149...1c4a49: 50.0000000 TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI -> GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH memo(text)=dep-2001
+  Findings:
+    [info] matched refund_payment_matched: 1 on-chain refund payment(s) match the record (destination, asset and issuer, amount).
+    [info] note external_payout_not_verified: Confirmation on chain is not a bank payout: AnchorTrace checks only the Stellar leg. The external payout (bank, cash or other rail) is not observable here and remains the anchor's claim.
+
+Inputs:
+  src-1 sep24_record supplied file refunded-with-onchain-refund.case.json
+  src-2 evidence supplied file refunded-with-onchain-refund.case.json (embedded evidence)
+
+Limitations:
+  - Confirmation on chain is not a bank payout. For a withdrawal, a confirmed Stellar payment to the anchor shows only the wallet-side transfer. AnchorTrace cannot observe the anchor's bank, cash or other external payout; a status of completed or an external_transaction_id is the anchor's own claim and stays unverified.
+  - Only SEP-24 transactions and classic direct payment operations are reconciled. Path payments, claimable balances, Soroban contract transfers and other value-moving forms are reported as unsupported, never as matched.
+  - Absence of evidence is not evidence of absence: supplied files and single-hash Horizon reads cannot prove that no payment happened. A failed or missing read is reported as insufficient_evidence, never as a mismatch.
+  - Evidence is exactly what the supplied file or the named Horizon returned at the recorded time. AnchorTrace does not verify ledger history cryptographically.
+  - The Stellar network fee (fee_charged) is not the anchor fee and is not compared. Anchor fees come only from the SEP-24 record.
