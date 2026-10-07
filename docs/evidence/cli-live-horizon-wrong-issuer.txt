@@ -1,0 +1,30 @@
+$ node dist/cli.js reconcile examples/sep24/wrong-issuer.sep24.json --horizon testnet --network testnet --fee-policy anchor_deducted
+AnchorTrace report v1 (anchortrace 0.1.0), generated 2026-10-07T14:21:45.603Z
+Fee policy: anchor_deducted (chosen)
+
+Overall: DISCREPANT (1 discrepant)
+Note: confirmation on chain is not a bank payout. AnchorTrace checks only the Stellar leg.
+
+Transaction syn-wd-001 (withdrawal): DISCREPANT
+  Status: completed, elected by single snapshot
+  Operation 21782411972972545 paid TRACEUSD:GAZ3S5TXIUUSAW7UC2RPQXNYWUJZSTSH5CPHG5RYNMOUBMJL45ER6ZII but the record expects the same code from issuer GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD. A same-code asset from a different issuer is a different asset.
+  Expected leg: 100.0000000 TRACEUSD:GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH -> GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI memo(id)=1003, tx c44916ee...e810d9
+  Timeline:
+    1. 2026-10-07T14:30:00.000Z  completed  <- current
+  Evidence considered (linked by stellar_transaction_id):
+    [conflicting] payment op 21782411972972545 in c44916ee...e810d9: 100.0000000 TRACEUSD:GAZ3S5TXIUUSAW7UC2RPQXNYWUJZSTSH5CPHG5RYNMOUBMJL45ER6ZII GCWEQIIHHZN2BS5Y7VPXMTMNHFL7Y5GEWJFG4QKPGRUIOP76JBVUXFWH -> GBC4Y6VLSLAMPSRSHPRF4WQ7UVUYCG3RYUZMDZX6UUE6AHBVNCVIJ7VI memo(id)=1003
+  Findings:
+    [error] discrepant wrong_issuer: Operation 21782411972972545 paid TRACEUSD:GAZ3S5TXIUUSAW7UC2RPQXNYWUJZSTSH5CPHG5RYNMOUBMJL45ER6ZII but the record expects the same code from issuer GC7Q2WPYYUISJ2FL26UVAEDSYJG2OBIFIGZSW2NYQCMOUKPM4LI3JRJD. A same-code asset from a different issuer is a different asset.
+    [info] note external_payout_not_verified: Confirmation on chain is not a bank payout: AnchorTrace checks only the Stellar leg. The external payout (bank, cash or other rail) is not observable here and remains the anchor's claim.
+
+Inputs:
+  src-1 sep24_record supplied file examples/sep24/wrong-issuer.sep24.json sha256 2e50841315d7...
+  src-2 evidence live Horizon (testnet, HTTP 200, 2026-10-07T14:21:45.598Z) Horizon https://horizon-testnet.stellar.org/transactions/c44916ee3f5abefa73adf90115a962ddf9b64c5f062f33a65f7361b1bee810d9
+
+Limitations:
+  - Confirmation on chain is not a bank payout. For a withdrawal, a confirmed Stellar payment to the anchor shows only the wallet-side transfer. AnchorTrace cannot observe the anchor's bank, cash or other external payout; a status of completed or an external_transaction_id is the anchor's own claim and stays unverified.
+  - Only SEP-24 transactions and classic direct payment operations are reconciled. Path payments, claimable balances, Soroban contract transfers and other value-moving forms are reported as unsupported, never as matched.
+  - Absence of evidence is not evidence of absence: supplied files and single-hash Horizon reads cannot prove that no payment happened. A failed or missing read is reported as insufficient_evidence, never as a mismatch.
+  - Evidence is exactly what the supplied file or the named Horizon returned at the recorded time. AnchorTrace does not verify ledger history cryptographically.
+  - The Stellar network fee (fee_charged) is not the anchor fee and is not compared. Anchor fees come only from the SEP-24 record.
+exit=1
