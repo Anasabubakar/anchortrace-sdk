@@ -1,0 +1,12 @@
+
+ RUN  v5.0.3 /home/gamp/Desktop/Projects/Stellar/anchortrace/anchortrace-sdk
+
+ ✓ test/live/horizon.live.test.ts > live Horizon testnet > returns the same normalised operations as the recorded evidence for every scenario 10130ms
+ ✓ test/live/horizon.live.test.ts > live Horizon testnet > reconciles a synthetic withdrawal record against live chain evidence 834ms
+ ✓ test/live/horizon.live.test.ts > live Horizon testnet > a random unknown hash is reported as not found, not as a mismatch 497ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  15:16:14
+   Duration  11.83s (tests 98%, transform 1%, import 1%)
+
