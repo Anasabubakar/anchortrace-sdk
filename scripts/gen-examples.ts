@@ -137,6 +137,7 @@ for (const d of defs) {
   const got = report.transactions.map((t) => t.outcome);
   if (got.some((o) => o !== d.intendedOutcome)) throw new Error(`case ${d.id}: intended ${d.intendedOutcome} but the engine produced ${got.join(",")}`);
   writes.push([`examples/cases/${d.id}.case.json`, JSON.stringify(c, null, 2) + "\n"]);
+  writes.push([`examples/sep24/${d.id}.sep24.json`, JSON.stringify(c.records.length === 1 ? { transaction: c.records[0] } : { transactions: c.records }, null, 2) + "\n"]);
   writes.push([`examples/reports/${d.id}.report.json`, JSON.stringify(report, null, 2) + "\n"]);
   writes.push([`examples/reports/${d.id}.report.txt`, renderText(report)]);
   bundleCases.push({ id: d.id, case: c, report });
@@ -147,6 +148,7 @@ writes.push([
 ]);
 
 mkdirSync("examples/cases", { recursive: true });
+mkdirSync("examples/sep24", { recursive: true });
 mkdirSync("examples/reports", { recursive: true });
 let stale = false;
 for (const [path, text] of writes) {
