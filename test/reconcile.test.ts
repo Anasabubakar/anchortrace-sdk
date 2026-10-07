@@ -282,3 +282,23 @@ describe("refunds", () => {
     expect(t.outcome).toBe("discrepant");
   });
 });
+
+describe("contradictory status history", () => {
+  const w01 = "w01-correct-withdrawal-payment";
+  it("is ambiguous, and status-dependent conclusions are withheld rather than chosen by tie-break", () => {
+    const t = only(run([[withdrawal(w01, { status: "completed", updated_at: "2026-10-07T14:30:00Z" }), withdrawal(w01, { status: "error", updated_at: "2026-10-07T14:30:00Z" })]], [w01]));
+    expect(t.outcome).toBe("ambiguous");
+    expect(codes(t)).toContain("status_history_conflict");
+    expect(codes(t)).not.toContain("funds_received_but_terminal_failure");
+    expect(codes(t)).not.toContain("onchain_leg_matched");
+  });
+  it("still reports evidence mismatches that do not depend on the status", () => {
+    const t = only(run([[withdrawal("w02-wrong-destination", { withdraw_memo: "1002", status: "completed", updated_at: "2026-10-07T14:30:00Z" }), withdrawal("w02-wrong-destination", { withdraw_memo: "1002", status: "error", updated_at: "2026-10-07T14:30:00Z" })]], ["w02-wrong-destination"]));
+    expect(t.outcome).toBe("discrepant");
+    expect(codes(t)).toEqual(expect.arrayContaining(["wrong_destination", "status_history_conflict"]));
+  });
+  it("a status that changes after a terminal status is ambiguous", () => {
+    const t = only(run([[withdrawal(w01, { status: "completed", updated_at: "2026-10-07T14:30:00Z" }), withdrawal(w01, { status: "pending_anchor", updated_at: "2026-10-07T15:00:00Z" })]], [w01]));
+    expect(t.outcome).toBe("ambiguous");
+  });
+});

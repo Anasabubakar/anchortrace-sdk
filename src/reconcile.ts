@@ -358,10 +358,15 @@ function reconcileTransaction(id: string, snaps: Snapshot[], ctx: TxContext): Tr
   // ---- combine the leg state with what the status promises ------------------
   const state = main.state;
   const hash = leg?.transactionHash ?? null;
+  // When the snapshots contradict each other the "current" status is not trustworthy, so conclusions that depend on
+  // what the status promises are withheld; evidence-versus-record mismatches (wrong destination, amount, ...) still stand.
+  const statusReliable = !tl.findings.some((f) => f.code === "status_history_conflict" || f.code === "status_after_terminal");
   const matchedNote = (code: Finding["code"], effect: Outcome | null, msg: string, sev: Finding["severity"] = "info"): void => {
     findings.push({ code, severity: sev, effect, message: msg, refs: main.candidates.filter((c) => c.role === "matched").map((c) => ({ transactionHash: c.transactionHash, operationId: c.operationId, operationIndex: c.operationIndex, sourceId: c.sourceId })) });
   };
-  if (leg !== null) {
+  if (!statusReliable) {
+    // intentionally no status-dependent finding
+  } else if (leg !== null) {
     if (state === "matched") {
       if (expectation === "required") matchedNote("onchain_leg_matched", rec.status === "completed" ? "matched" : "pending", `The on-chain transfer matches the record (destination, asset and issuer, amount${leg.memo !== null ? ", memo" : ""}${leg.source !== null ? ", sender" : ""}). The record's status is ${rec.status}.`);
       else if (expectation === "inflight") matchedNote("onchain_leg_matched", "pending", `The transfer is confirmed on chain and matches the record, but the record still says ${rec.status}.`);
