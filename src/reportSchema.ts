@@ -124,6 +124,7 @@ export const candidate = z.strictObject({
   operationId: z.string(),
   operationIndex: z.number().int().nonnegative(),
   type: z.string(),
+  purpose: z.enum(["transfer", "refund"]),
   role: z.enum(["matched", "conflicting", "unsupported", "unrelated"]),
   sourceId: z.string(),
   from: z.string().nullable(),
