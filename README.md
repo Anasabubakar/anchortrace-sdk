@@ -87,6 +87,10 @@ const report = reconcileSupplied({ records: [{ label: "tx.json", value: sep24Jso
 
 The root export is browser-safe (no Node built-ins, no `@stellar/stellar-sdk`); it is what the [anchortrace-studio](../anchortrace-studio) browser app bundles. Versions: tool 0.1.0, report schema 1, evidence schema 1, case schema 1, SEP-24 v3.8.0.
 
+## How it was verified
+
+On 2026-10-07, from a clean clone: `pnpm install --frozen-lockfile`, `pnpm run typecheck`, `pnpm run check:schema`, `pnpm run check:examples`, `pnpm test` (150 tests pass; 3 live tests skipped unless `ANCHORTRACE_LIVE=1`), `pnpm build`, then the built CLI. The 3 live tests were run separately against the real Horizon testnet and passed (`docs/evidence/live-horizon-testnet-test.txt`). Expectations in the tests come from the SEP-24 text and from the recorded chain evidence, not from the engine's own output.
+
 ## Supported versions
 
 Node >= 22 (CI on 24). Horizon JSON as returned by horizon-testnet.stellar.org on 2026-10-07 (`payment`, `path_payment_strict_send`, `create_claimable_balance`, `invoke_host_function` shapes were recorded). SEP-24 v3.8.0 statuses and fields. Public network reads use the same code path but were not exercised in tests.
