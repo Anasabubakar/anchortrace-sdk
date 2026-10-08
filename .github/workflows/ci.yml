@@ -29,6 +29,6 @@ jobs:
           pnpm pack --pack-destination "$RUNNER_TEMP"
           mkdir "$RUNNER_TEMP/smoke" && cd "$RUNNER_TEMP/smoke"
           npm init -y >/dev/null
-          npm install "$RUNNER_TEMP"/anasabubakar-anchortrace-sdk-*.tgz
+          npm install "$RUNNER_TEMP"/anas.abubakar-anchortrace-sdk-*.tgz
           npx anchortrace --version
           npx anchortrace reconcile "$GITHUB_WORKSPACE/examples/cases/matched-withdrawal.case.json"
