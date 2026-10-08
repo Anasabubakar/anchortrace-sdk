@@ -1,4 +1,4 @@
-AnchorTrace report v1 (anchortrace 0.1.0), generated 2026-10-07T00:00:00.000Z
+AnchorTrace report v1 (anchortrace 0.1.1), generated 2026-10-07T00:00:00.000Z
 Fee policy: anchor_deducted (default)
 
 Overall: INSUFFICIENT EVIDENCE (1 insufficient_evidence)

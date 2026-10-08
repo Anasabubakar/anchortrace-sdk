@@ -1,6 +1,6 @@
 {
   "examplesVersion": "1",
-  "toolVersion": "0.1.0",
+  "toolVersion": "0.1.1",
   "reportVersion": "1",
   "generatedWith": "scripts/gen-examples.ts (the real engine; nothing here is hand-written output)",
   "generatedAt": "2026-10-07T00:00:00.000Z",
@@ -91,7 +91,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -374,7 +374,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -624,7 +624,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -911,7 +911,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -1214,7 +1214,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -1560,7 +1560,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -1847,7 +1847,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -2136,7 +2136,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -2390,7 +2390,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -2666,7 +2666,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -2878,7 +2878,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -3097,7 +3097,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -3340,7 +3340,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -3570,7 +3570,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -3948,7 +3948,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -4302,7 +4302,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -4601,7 +4601,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
@@ -4896,7 +4896,7 @@
         "reportVersion": "1",
         "tool": {
           "name": "anchortrace",
-          "version": "0.1.0"
+          "version": "0.1.1"
         },
         "generatedAt": "2026-10-07T00:00:00.000Z",
         "inputs": [
