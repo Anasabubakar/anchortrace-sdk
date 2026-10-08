@@ -17,7 +17,7 @@ AnchorTrace reconciles a **SEP-24 transaction record** (what the anchor says) ag
 
 ## Install and run
 
-Not published to npm. From a clone (Node 22 or newer, pnpm 11):
+Published to npm as `@anas.abubakar/anchortrace-sdk`. From a clone (Node 22 or newer, pnpm 11):
 
 ```bash
 git clone <this repo> && cd anchortrace-sdk
@@ -105,4 +105,4 @@ Node >= 22 (CI on 24). Horizon JSON as returned by horizon-testnet.stellar.org o
 - The fee policy is an explicit interpretation, not something SEP-24 stores. Pick the one that matches the anchor; a wrong choice shows up as an amount mismatch, not silently.
 - Redaction scans free text for addresses, emails and known memos only. Review exports before sharing.
 - The shipped SEP-24 records are synthetic. No anchor, wallet or support team has used this tool; there is no adoption evidence.
-- Not published to npm. No Soroban/SEP-41 token transfers, liquidity pools, offers, SEP-6/31.
+- No Soroban/SEP-41 token transfers, liquidity pools, offers, SEP-6/31.
