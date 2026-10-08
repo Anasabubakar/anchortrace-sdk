@@ -172,7 +172,8 @@ describe("explain, export, validate, schema", () => {
   it("--version and --help exit 0", async () => {
     const c = cap();
     expect(await runCli(["--version"], c.io)).toBe(0);
-    expect(c.out()).toMatch(/0\.1\.0/);
+    const pkg = JSON.parse((await import("node:fs")).readFileSync("package.json", "utf8"));
+    expect(c.out()).toContain(pkg.version); // package.json is the independent source of the version
     expect(await runCli(["--help"], cap().io)).toBe(0);
   });
 });
