@@ -1,6 +1,11 @@
+<p align="center"><img src="docs/assets/banner.svg" alt="anchortrace-sdk" width="100%"></p>
+
 # anchortrace-sdk
 
-**Documentation:** https://stellar-developer-tools.gitbook.io/anchortrace-sdk/
+[![CI](https://github.com/Anchor-Trace/anchortrace-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/Anchor-Trace/anchortrace-sdk/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Release](https://img.shields.io/github/v/release/Anchor-Trace/anchortrace-sdk)](https://github.com/Anchor-Trace/anchortrace-sdk/releases) [![npm](https://img.shields.io/npm/v/@anas.abubakar/anchortrace-sdk)](https://www.npmjs.com/package/@anas.abubakar/anchortrace-sdk)
+
+[Documentation](https://stellar-developer-tools.gitbook.io/anchortrace-sdk/) · [App repository](https://github.com/Anchor-Trace/anchortrace-studio) · [Issues](https://github.com/Anchor-Trace/anchortrace-sdk/issues) · [Discussions](https://github.com/Anchor-Trace/anchortrace-sdk/discussions)
+
 
 Explain a stuck or disputed anchor payment, from evidence, without trusting either side.
 
@@ -87,7 +92,7 @@ import { reconcileSupplied, HorizonSource, renderText } from "@anas.abubakar/anc
 const report = reconcileSupplied({ records: [{ label: "tx.json", value: sep24Json }], evidence: [{ label: "ops.json", value: horizonJson }] });
 ```
 
-The root export is browser-safe (no Node built-ins, no `@stellar/stellar-sdk`); it is what the [anchortrace-studio](https://github.com/Anasabubakar/anchortrace-studio) browser app bundles. Versions: tool 0.1.0, report schema 1, evidence schema 1, case schema 1, SEP-24 v3.8.0.
+The root export is browser-safe (no Node built-ins, no `@stellar/stellar-sdk`); it is what the [anchortrace-studio](https://github.com/Anchor-Trace/anchortrace-studio) browser app bundles. Versions: tool 0.1.0, report schema 1, evidence schema 1, case schema 1, SEP-24 v3.8.0.
 
 ## How it was verified
 
@@ -109,8 +114,44 @@ Node >= 22 (CI on 24). Horizon JSON as returned by horizon-testnet.stellar.org o
 - The shipped SEP-24 records are synthetic. No anchor, wallet or support team has used this tool; there is no adoption evidence.
 - No Soroban/SEP-41 token transfers, liquidity pools, offers, SEP-6/31.
 
+## Repository layout
+
+- `docs/`: decision records (ADRs), evidence and assets
+- `examples/`: generated example reports
+- `fixtures/`: recorded and fixture data used by the tests
+- `gitbook/`: source of the GitBook documentation
+- `schema/`: JSON Schemas, generated and checked in CI
+- `scripts/`: build, generation and recording scripts
+- `src/`: source
+- `test/`: tests
+
+## Documentation
+
+The full documentation is at https://stellar-developer-tools.gitbook.io/anchortrace-sdk/. It is built from the `gitbook/` folder of this repository and synced from `main`, so a fix to a page is a pull request here.
+
+## Contributing
+
+Open issues are scoped so one person can finish one in a single cycle, and each lists acceptance criteria. Read [CONTRIBUTING.md](CONTRIBUTING.md), pick an issue from the [issue list](https://github.com/Anchor-Trace/anchortrace-sdk/issues), and say you are taking it before you start. Security reports go through [SECURITY.md](SECURITY.md), not public issues.
+
+## Maintainers
+
+| Maintainer | Role | GitHub |
+|---|---|---|
+| Anas Abubakar | Lead maintainer | [@Anasabubakar](https://github.com/Anasabubakar) |
+| Abdulbasit Fazazi | Co-maintainer | [@fazaziishola-coder](https://github.com/fazaziishola-coder) |
+
+## Community
+
+Questions and design discussion go in [GitHub Discussions](https://github.com/Anchor-Trace/anchortrace-sdk/discussions). Bugs and scoped work go in [Issues](https://github.com/Anchor-Trace/anchortrace-sdk/issues).
+
+## License
+
+MIT. See [LICENSE](LICENSE).
+
 ## Contributors
 
-<a href="https://github.com/Anasabubakar/anchortrace-sdk/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Anasabubakar/anchortrace-sdk" alt="Contributors to anchortrace-sdk" />
+Thanks to all the contributors who have made this project possible.
+
+<a href="https://github.com/Anchor-Trace/anchortrace-sdk/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Anchor-Trace/anchortrace-sdk" alt="Contributors to anchortrace-sdk" />
 </a>
