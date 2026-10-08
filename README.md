@@ -1,5 +1,7 @@
 # anchortrace-sdk
 
+**Documentation:** https://stellar-developer-tools.gitbook.io/anchortrace-sdk/
+
 Explain a stuck or disputed anchor payment, from evidence, without trusting either side.
 
 AnchorTrace reconciles a **SEP-24 transaction record** (what the anchor says) against **Stellar classic payment evidence** (what the ledger shows), one transaction at a time, and says why. It is read-only: no keys, no signing, no payment execution, `GET` requests only.
