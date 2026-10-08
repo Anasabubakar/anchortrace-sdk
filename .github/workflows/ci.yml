@@ -22,6 +22,7 @@ jobs:
       - run: pnpm run typecheck
       - run: pnpm run check:schema
       - run: pnpm run check:examples
+      - run: pnpm run check:browser-entry
       - run: pnpm test
       - run: pnpm run build
       - name: Packed CLI runs from a clean directory

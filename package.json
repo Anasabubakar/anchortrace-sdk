@@ -39,6 +39,7 @@
     "check:schema": "node --experimental-strip-types scripts/gen-schema.ts --check",
     "examples": "node --experimental-strip-types scripts/gen-examples.ts",
     "check:examples": "node --experimental-strip-types scripts/gen-examples.ts --check",
+    "check:browser-entry": "node scripts/check-browser-entry.mjs",
     "test:live": "ANCHORTRACE_LIVE=1 vitest run test/live"
   },
   "dependencies": {
@@ -49,6 +50,7 @@
     "@stellar/stellar-sdk": "17.2.1",
     "@types/node": "26.6.4",
     "ajv": "8.20.0",
+    "esbuild": "0.27.0",
     "typescript": "7.0.2",
     "vitest": "5.0.3"
   },
