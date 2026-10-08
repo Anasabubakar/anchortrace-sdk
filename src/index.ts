@@ -18,6 +18,7 @@ export {
   OUTCOMES,
   outcomeRank,
   parseReport,
+  reportConsistencyProblem,
   reportSchema,
   worst,
   type Candidate,

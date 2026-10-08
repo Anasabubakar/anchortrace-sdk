@@ -225,9 +225,31 @@ export type FieldCheck = z.infer<typeof fieldCheck>;
 export type OpRef = z.infer<typeof opRef>;
 export type ExpectedLeg = z.infer<typeof expectedLeg>;
 
+/**
+ * Headline fields must follow from the evidence in the same document: each transaction's outcome is the most severe
+ * effect among its findings, the summary counts its transactions' outcomes, and `overall` is the most severe outcome.
+ * Returns a problem description, or null when the report agrees with itself.
+ */
+export function reportConsistencyProblem(report: Report): string | null {
+  const counts: Record<Outcome, number> = { matched: 0, pending: 0, insufficient_evidence: 0, unsupported: 0, ambiguous: 0, discrepant: 0 };
+  for (const t of report.transactions) {
+    const expected = worst(t.findings.flatMap((f) => (f.effect === null ? [] : [f.effect])));
+    if (expected !== t.outcome) return `Inconsistent report: transaction ${t.id} has outcome "${t.outcome}" but its findings give "${expected ?? "none"}".`;
+    counts[t.outcome] += 1;
+  }
+  for (const k of Object.keys(counts) as Outcome[]) {
+    if (report.summary[k] !== counts[k]) return `Inconsistent report: summary says ${report.summary[k]} ${k} but the transactions have ${counts[k]}.`;
+  }
+  const overall = worst(report.transactions.map((t) => t.outcome));
+  if (report.overall !== overall) return `Inconsistent report: overall is "${report.overall ?? "null"}" but the transactions give "${overall ?? "null"}".`;
+  return null;
+}
+
 export function parseReport(input: unknown): { ok: true; report: Report } | { ok: false; error: string } {
   const r = reportSchema.safeParse(input);
-  return r.success ? { ok: true, report: r.data } : { ok: false, error: r.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ") };
+  if (!r.success) return { ok: false, error: r.error.issues.map((i) => `${i.path.join(".") || "(root)"}: ${i.message}`).join("; ") };
+  const problem = reportConsistencyProblem(r.data);
+  return problem ? { ok: false, error: problem } : { ok: true, report: r.data };
 }
 
 export function outcomeRank(o: Outcome): number {
