@@ -81,7 +81,7 @@ Transaction syn-wd-001 (withdrawal): DISCREPANT
 ## Library use
 
 ```ts
-import { reconcileSupplied, HorizonSource, renderText } from "@anasabubakar/anchortrace-sdk";
+import { reconcileSupplied, HorizonSource, renderText } from "@anas.abubakar/anchortrace-sdk";
 const report = reconcileSupplied({ records: [{ label: "tx.json", value: sep24Json }], evidence: [{ label: "ops.json", value: horizonJson }] });
 ```
 

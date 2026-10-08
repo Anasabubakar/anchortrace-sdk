@@ -1,5 +1,5 @@
 {
-  "name": "@anasabubakar/anchortrace-sdk",
+  "name": "@anas.abubakar/anchortrace-sdk",
   "version": "0.1.0",
   "description": "Read-only explainable reconciliation of SEP-24 anchor transactions against Stellar classic payment evidence. Engine, Horizon adapter, CLI and report schema.",
   "license": "MIT",
