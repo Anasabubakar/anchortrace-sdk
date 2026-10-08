@@ -106,3 +106,9 @@ Node >= 22 (CI on 24). Horizon JSON as returned by horizon-testnet.stellar.org o
 - Redaction scans free text for addresses, emails and known memos only. Review exports before sharing.
 - The shipped SEP-24 records are synthetic. No anchor, wallet or support team has used this tool; there is no adoption evidence.
 - No Soroban/SEP-41 token transfers, liquidity pools, offers, SEP-6/31.
+
+## Contributors
+
+<a href="https://github.com/Anasabubakar/anchortrace-sdk/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Anasabubakar/anchortrace-sdk" alt="Contributors to anchortrace-sdk" />
+</a>
