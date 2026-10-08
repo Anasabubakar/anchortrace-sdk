@@ -6,4 +6,4 @@ Rules: never add a non-GET request, signing or key handling to `src/`. A failed 
 Generated: `schema/` and `examples/` (CI fails if stale). The studio vendors a tarball of this package; after changing report/evidence/case schemas bump the schema version and update the studio pairing.
 Testnet: fixture accounts are identities `at-issuer at-rogue at-wallet at-anchor at-other` in `~/.config/stellar`; keys never go in the repo. `scripts/testnet-fixtures.mjs` makes real testnet transactions (fixture tooling only).
 Commit rules: one logical unit per commit, no AI co-author trailers, author is the repo owner.
-Unfinished: npm publish; a real anchor or support-team review of the outcome vocabulary; public-network live tests; Soroban/path-payment interpretation (deliberately out of v1).
+Unfinished: a real anchor or support-team review of the outcome vocabulary; public-network live tests; Soroban/path-payment interpretation (deliberately out of v1).
