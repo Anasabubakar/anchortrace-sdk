@@ -1,13 +1,14 @@
 import { mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { runCli } from "../src/cli.ts";
 import { parseReport } from "../src/reportSchema.ts";
 import { ANCHOR, WALLET, withdrawal } from "./helpers/cases.ts";
 import { startFakeHorizon, type FakeHorizon } from "./helpers/fakeHorizon.ts";
 
-const EV = (n: string) => new URL(`../fixtures/testnet/evidence/${n}.json`, import.meta.url).pathname;
+const EV = (n: string) => fileURLToPath(new URL(`../fixtures/testnet/evidence/${n}.json`, import.meta.url));
 let dir: string;
 let h: FakeHorizon;
 
