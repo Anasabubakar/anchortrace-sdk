@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.1
+- `parseReport` now rejects reports whose transaction outcomes, summary counts or `overall` contradict their findings. Package metadata and absolute documentation links. Example reports regenerated with the new version stamp.
+
 ## 0.1.0 (unreleased)
 First version-one scope.
 - SEP-24 (v3.8.0) record normalisation: 16 statuses, kind-aware expectations, deposit and withdrawal legs, refunds, amount formulas.
